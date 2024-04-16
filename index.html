@@ -412,16 +412,22 @@
       currentQuestion++;
       nextQuestion();
     }
-
+    
     function showWinnerVideo(playerNumber) {
       const winnerVideo = document.getElementById("winnerVideo");
       winnerVideo.innerHTML = `
-        <video width="400" controls autoplay>
-          <source src="winner-video-player${playerNumber}.mp4" type="video/mp4">
+        <video id="winnerVideoPlayer" width="600" controls>
+          <source src="player${playerNumber}-winner.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       `;
       winnerVideo.style.display = "block";
+    
+      // Start playing the video
+      const videoPlayer = document.getElementById("winnerVideoPlayer");
+      videoPlayer.play().catch(error => {
+        console.error("Failed to autoplay video:", error);
+      });
     }
   </script>
 </body>
