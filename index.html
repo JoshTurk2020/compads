@@ -169,6 +169,7 @@
 
   <audio id="backgroundMusic" src="yellowbird.mp3" loop></audio>
   <audio id="incorrectSound" src="incorrect.mp3"></audio>
+  <audio id="correctSound" src="correct.mp3"></audio>
 
   <script>
     // JavaScript code for the game logic
@@ -329,142 +330,116 @@
           correctAnswer: "most beautiful"
         },
         {
-          sentence: "The new game is (challenging) than the previous one.",
-          options: ["more challenging", "challenginger", "most challenging", "challengingest"],
+          sentence: "The new game is (challenging) than the old one.",
+          options: ["more challenging", "most challenging", "challenginger", "challengingest"],
           correctAnswer: "more challenging"
-        },
-        {
-          sentence: "This is the (funny) joke I've heard in a long time.",
-          options: ["more funny", "funnier", "most funny", "funniest"],
-          correctAnswer: "funniest"
-        },
-        {
-          sentence: "The new office is the (spacious) one in the building.",
-          options: ["spaciouser", "more spacious", "spaciousest", "most spacious"],
-          correctAnswer: "most spacious"
-        },
-        {
-          sentence: "This is the (bad) mistake I've ever made.",
-          options: ["worse", "baddest", "badder", "worst"],
-          correctAnswer: "worst"
-        },
-        {
-          sentence: "The movie sequel is (good) than the original.",
-          options: ["best", "gooder", "better", "goodest"],
-          correctAnswer: "better"
-        },
-        {
-          sentence: "This is the (interesting) book I've read in a while.",
-          options: ["interestinger", "most interesting", "interestingest", "more interesting"],
-          correctAnswer: "most interesting"
-        },
-        {
-          sentence: "The new restaurant has the (delicious) desserts in town.",
-          options: ["deliciouser", "most delicious", "more delicious", "deliciousest"],
-          correctAnswer: "most delicious"
-        },
-        {
-          sentence: "This is the (beautiful) flower arrangement I've ever seen.",
-          options: ["more beautiful", "beautifullest", "most beautiful", "beautifuller"],
-          correctAnswer: "most beautiful"
-        },
-        {
-          sentence: "The new workout routine is the (challenging) one I've tried.",
-          options: ["challenginger", "more challenging", "challengingest", "most challenging"],
-          correctAnswer: "most challenging"
-      }
+        }
     ];
-  
+
     let currentPlayer = 1;
-    let currentQuestion = 0;
     let score1 = 0;
     let score2 = 0;
-  
+    let currentQuestion = 0;
+    let winner = "";
+
+    const player1Name = document.getElementById("player1Name");
+    const player2Name = document.getElementById("player2Name");
+    const score1Display = document.getElementById("score1");
+    const score2Display = document.getElementById("score2");
+    const questionDisplay = document.getElementById("question");
+    const answersDisplay = document.getElementById("answers");
+    const winnerVideo = document.getElementById("winnerVideo");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+    const incorrectSound = document.getElementById("incorrectSound");
+    const correctSound = document.getElementById("correctSound");
+
     function startGame() {
-      const player1Name = document.getElementById("player1").value || "Player 1";
-      const player2Name = document.getElementById("player2").value || "Player 2";
-      document.getElementById("player1Name").textContent = player1Name;
-      document.getElementById("player2Name").textContent = player2Name;
-      document.getElementById("backgroundMusic").play();
-      nextQuestion();
+      const player1Input = document.getElementById("player1").value;
+      const player2Input = document.getElementById("player2").value;
+
+      if (player1Input.trim() !== "" && player2Input.trim() !== "") {
+        player1Name.textContent = player1Input;
+        player2Name.textContent = player2Input;
+
+        currentPlayer = 1;
+        score1 = 0;
+        score2 = 0;
+        currentQuestion = 0;
+        winner = "";
+
+        updateScore();
+        nextQuestion();
+
+        document.querySelector(".button").style.display = "none";
+        document.getElementById("player1").style.display = "none";
+        document.getElementById("player2").style.display = "none";
+
+        backgroundMusic.play();
+      } else {
+        alert("Please enter names for both players to start the game.");
+      }
     }
-  
+
     function nextQuestion() {
       if (currentQuestion < sentences.length) {
-        const question = sentences[currentQuestion];
-        document.getElementById("question").textContent = question.sentence;
-  
-        const answerButtons = question.options.map(option => `
-          <button class="answer" onclick="checkAnswer('${option}')">
-            ${option}
-          </button>
-        `).join("");
-  
-        document.getElementById("answers").innerHTML = answerButtons;
+        questionDisplay.textContent = sentences[currentQuestion].sentence;
+        createAnswerButtons(sentences[currentQuestion].options);
+        currentQuestion++;
       } else {
-        document.getElementById("question").textContent = "Game Over!";
-        document.getElementById("answers").innerHTML = "";
+        finishGame();
       }
+    }
+
+    function createAnswerButtons(options) {
+      answersDisplay.innerHTML = "";
+      options.forEach((option) => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.classList.add("answer");
+        button.onclick = () => checkAnswer(option);
+        answersDisplay.appendChild(button);
+      });
     }
 
     function checkAnswer(answer) {
-      const question = sentences[currentQuestion];
-      const correctAnswer = question.correctAnswer;
-
+      const correctAnswer = sentences[currentQuestion - 1].correctAnswer;
       if (answer === correctAnswer) {
         if (currentPlayer === 1) {
           score1++;
-          document.getElementById("score1").textContent = score1;
-          if (score1 === 5) {
-            showWinnerVideo(1);
-          }
+          score1Display.textContent = score1;
         } else {
           score2++;
-          document.getElementById("score2").textContent = score2;
-          if (score2 === 5) {
-            showWinnerVideo(2);
-          }
+          score2Display.textContent = score2;
         }
+        correctSound.play();
       } else {
-        document.getElementById("incorrectSound").play();
-        const currentPlayerName = document.getElementById(`player${currentPlayer}Name`).textContent;
-        const nextPlayerName = document.getElementById(`player${currentPlayer === 1 ? 2 : 1}Name`).textContent;
-        alert(`Nice try, ${currentPlayerName}! ${nextPlayerName}'s turn.`);
-        currentPlayer = currentPlayer === 1 ? 2 : 1;
+        incorrectSound.play();
       }
-      
-      currentQuestion++;
-      nextQuestion();
+      currentPlayer = currentPlayer === 1 ? 2 : 1;
+      updateScore();
     }
-    
-    function showWinnerVideo(playerNumber) {
-      const winnerVideo = document.getElementById("winnerVideo");
-      winnerVideo.innerHTML = `
-        <video id="winnerVideoPlayer" width="400" controls>
-          <source src="player${playerNumber}-winner.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button id="playVideoButton" class="button">Play Video</button>
-      `;
+
+    function updateScore() {
+      if (currentPlayer === 1) {
+        player1Name.style.fontWeight = "bold";
+        player2Name.style.fontWeight = "normal";
+      } else {
+        player2Name.style.fontWeight = "bold";
+        player1Name.style.fontWeight = "normal";
+      }
+    }
+
+    function finishGame() {
+      if (score1 > score2) {
+        winner = player1Name.textContent;
+      } else if (score2 > score1) {
+        winner = player2Name.textContent;
+      } else {
+        winner = "It's a tie!";
+      }
+      winnerVideo.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/ub82Xb1C8os?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       winnerVideo.style.display = "block";
-    
-      const playButton = document.getElementById("playVideoButton");
-      const videoPlayer = document.getElementById("winnerVideoPlayer");
-      const backgroundMusic = document.getElementById("backgroundMusic");
-    
-      // Pause background music and play the video when the button is clicked
-      playButton.addEventListener("click", function() {
-        backgroundMusic.pause();
-        videoPlayer.play().catch(error => {
-          console.error("Failed to play video:", error);
-        });
-        playButton.style.display = "none";
-      });
-    
-      // Resume background music when the video ends
-      videoPlayer.addEventListener("ended", function() {
-        backgroundMusic.play();
-      });
+      backgroundMusic.pause();
     }
   </script>
 </body>
