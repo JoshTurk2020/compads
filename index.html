@@ -100,23 +100,6 @@
       animation: floatingAnimation 10s infinite ease-in-out;
       z-index: -1;
     }
-    @keyframes floatingAnimation {
-      0% {
-        transform: translate(0, 0);
-      }
-      25% {
-        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
-      }
-      50% {
-        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
-      }
-      75% {
-        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
     #winnerVideo {
       display: none;
       margin-top: 20px;
@@ -427,13 +410,13 @@
         if (currentPlayer === 1) {
           score1++;
           document.getElementById("score1").textContent = score1;
-          if (score1 === 5) {
+          if (score1 === 20) {
             showWinnerVideo(1);
           }
         } else {
           score2++;
           document.getElementById("score2").textContent = score2;
-          if (score2 === 5) {
+          if (score2 === 20) {
             showWinnerVideo(2);
           }
         }
