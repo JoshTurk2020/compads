@@ -98,13 +98,14 @@
     .floating-image {
       position: absolute;
       animation: floatingAnimation 10s infinite linear;
+      z-index: -1;
     }
     @keyframes floatingAnimation {
       0% {
         transform: translate(0, 0);
       }
       50% {
-        transform: translate(calc(100vw - 200px), calc(100vh - 200px));
+        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
       }
       100% {
         transform: translate(0, 0);
@@ -376,7 +377,7 @@
       }
     ];
   
-        let currentPlayer = 1;
+    let currentPlayer = 1;
     let currentQuestion = 0;
     let score1 = 0;
     let score2 = 0;
@@ -469,4 +470,4 @@
     }
   </script>
 </body>
-</html
+</html>
