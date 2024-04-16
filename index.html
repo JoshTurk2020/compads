@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Josh's Grammar Game</title>
+  <title>Josh's Comparative Adjectives</title>
   <style>
     /* CSS styles for the game */
     body {
@@ -10,19 +10,31 @@
       background-color: #f0f0f0;
       margin: 0;
       padding: 20px;
-      background-image: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+      background-image: url('floridasunset.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
     h1 {
       color: #4a4a4a;
       font-size: 48px;
       margin-bottom: 30px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: textAnimation 2s infinite alternate;
+    }
+    @keyframes textAnimation {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-10px);
+      }
     }
     .player {
       display: inline-block;
       margin: 20px;
       padding: 20px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
@@ -82,10 +94,29 @@
       margin-bottom: 20px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    .floating-image {
+      position: absolute;
+      animation: floatingAnimation 10s infinite linear;
+    }
+    @keyframes floatingAnimation {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(calc(100vw - 200px), calc(100vh - 200px));
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+    #winnerVideo {
+      display: none;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <h1>Josh's Grammar Game</h1>
+  <h1>Who is the Master of Comparisons?</h1>
   <div>
     <label for="player1">Player 1:</label>
     <input type="text" id="player1" placeholder="Enter name">
@@ -106,6 +137,14 @@
   <div class="question" id="question"></div>
   <div id="answers"></div>
   <button class="button" onclick="nextQuestion()">Next Question</button>
+  <div id="winnerVideo"></div>
+
+  <img src="palmtree.png" class="floating-image" style="top: 20px; left: 20px; width: 100px;">
+  <img src="beachball.png" class="floating-image" style="top: 200px; right: 20px; width: 80px;">
+  <img src="starfish.png" class="floating-image" style="bottom: 20px; left: 50%; width: 60px;">
+
+  <audio id="backgroundMusic" src="yellowbird.mp3" loop></audio>
+  <audio id="incorrectSound" src="incorrect.mp3"></audio>
 
   <script>
     // JavaScript code for the game logic
@@ -312,38 +351,38 @@
       }
     ];
   
-      let currentPlayer = 1;
-      let currentQuestion = 0;
-      let score1 = 0;
-      let score2 = 0;
+    let currentPlayer = 1;
+    let currentQuestion = 0;
+    let score1 = 0;
+    let score2 = 0;
   
-      function startGame() {
-        const player1Name = document.getElementById("player1").value || "Player 1";
-        const player2Name = document.getElementById("player2").value || "Player 2";
-        document.getElementById("player1Name").textContent = player1Name;
-        document.getElementById("player2Name").textContent = player2Name;
-        nextQuestion();
+    function startGame() {
+      const player1Name = document.getElementById("player1").value || "Player 1";
+      const player2Name = document.getElementById("player2").value || "Player 2";
+      document.getElementById("player1Name").textContent = player1Name;
+      document.getElementById("player2Name").textContent = player2Name;
+      document.getElementById("backgroundMusic").play();
+      nextQuestion();
+    }
+  
+    function nextQuestion() {
+      if (currentQuestion < sentences.length) {
+        const question = sentences[currentQuestion];
+        document.getElementById("question").textContent = question.sentence;
+  
+        const answerButtons = question.options.map(option => `
+          <button class="answer" onclick="checkAnswer('${option}')">
+            ${option}
+          </button>
+        `).join("");
+  
+        document.getElementById("answers").innerHTML = answerButtons;
+      } else {
+        document.getElementById("question").textContent = "Game Over!";
+        document.getElementById("answers").innerHTML = "";
       }
-  
-      function nextQuestion() {
-        if (currentQuestion < sentences.length) {
-          const question = sentences[currentQuestion];
-          document.getElementById("question").textContent = question.sentence;
-  
-          const answerButtons = question.options.map(option => `
-            <button class="answer" onclick="checkAnswer('${option}')">
-              ${option}
-            </button>
-          `).join("");
-  
-          document.getElementById("answers").innerHTML = answerButtons;
-        } else {
-          document.getElementById("question").textContent = "Game Over!";
-          document.getElementById("answers").innerHTML = "";
-        }
-      }
+    }
 
-    
     function checkAnswer(answer) {
       const question = sentences[currentQuestion];
       const correctAnswer = question.correctAnswer;
@@ -352,11 +391,18 @@
         if (currentPlayer === 1) {
           score1++;
           document.getElementById("score1").textContent = score1;
+          if (score1 === 30) {
+            showWinnerVideo(1);
+          }
         } else {
           score2++;
           document.getElementById("score2").textContent = score2;
+          if (score2 === 30) {
+            showWinnerVideo(2);
+          }
         }
       } else {
+        document.getElementById("incorrectSound").play();
         const currentPlayerName = document.getElementById(`player${currentPlayer}Name`).textContent;
         const nextPlayerName = document.getElementById(`player${currentPlayer === 1 ? 2 : 1}Name`).textContent;
         alert(`Nice try, ${currentPlayerName}! ${nextPlayerName}'s turn.`);
@@ -365,6 +411,17 @@
       
       currentQuestion++;
       nextQuestion();
+    }
+
+    function showWinnerVideo(playerNumber) {
+      const winnerVideo = document.getElementById("winnerVideo");
+      winnerVideo.innerHTML = `
+        <video width="400" controls autoplay>
+          <source src="winner-video-player${playerNumber}.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
+      winnerVideo.style.display = "block";
     }
   </script>
 </body>
