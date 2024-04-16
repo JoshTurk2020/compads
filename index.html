@@ -440,37 +440,34 @@
     }
     
     function showWinnerVideo(playerNumber) {
-      const winnerVideo = document.getElementById("winnerVideo");
-      winnerVideo.innerHTML = `
-        <video id="winnerVideoPlayer" width="400" controls>
-          <source src="player${playerNumber}-winner.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button id="playVideoButton" class="button">Play Video</button>
-      `;
-      winnerVideo.style.display = "block";
-    
-      const playButton = document.getElementById("playVideoButton");
-      const videoPlayer = document.getElementById("winnerVideoPlayer");
-      const backgroundMusic = document.getElementById("backgroundMusic");
-    
-      // Pause background music and play the video when the button is clicked
-      playButton.addEventListener("click", function() {
-        backgroundMusic.pause();
-        videoPlayer.play().catch(error => {
-          console.error("Failed to play video:", error);
-        });
-        playButton.style.display = "none";
-      });
-    
-      // Resume background music when the video ends
-      videoPlayer.addEventListener("ended", function() {
-        backgroundMusic.play();
-      });
-    }
-  </script>
-</body>
-</html>
+          const winnerVideo = document.getElementById("winnerVideo");
+          winnerVideo.innerHTML = `
+            <video id="winnerVideoPlayer" width="400" controls>
+              <source src="player${playerNumber}-winner.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <button id="playVideoButton" class="button">Play Video</button>
+          `;
+          winnerVideo.style.display = "block";
+        
+          const playButton = document.getElementById("playVideoButton");
+          const videoPlayer = document.getElementById("winnerVideoPlayer");
+          const backgroundMusic = document.getElementById("backgroundMusic");
+        
+          // Pause background music and play the video when the button is clicked
+          playButton.addEventListener("click", function() {
+            backgroundMusic.pause();
+            videoPlayer.play().catch(error => {
+              console.error("Failed to play video:", error);
+            });
+            playButton.style.display = "none";
+          });
+        
+          // Resume background music when the video ends
+          videoPlayer.addEventListener("ended", function() {
+            backgroundMusic.play();
+          });
+        }
   </script>
 </body>
 </html>
