@@ -461,6 +461,17 @@
       videoPlayer.addEventListener("ended", function() {
         backgroundMusic.play();
       });
+    function animateFloatingImages() {
+      const floatingImages = document.querySelectorAll(".floating-image");
+      floatingImages.forEach(image => {
+        const randomX = Math.random() * (window.innerWidth - image.width);
+        const randomY = Math.random() * (window.innerHeight - image.height);
+        const randomDuration = Math.random() * 5 + 5; // Random duration between 5 and 10 seconds
+        
+        image.style.setProperty("--end-x", `${randomX}px`);
+        image.style.setProperty("--end-y", `${randomY}px`);
+        image.style.animationDuration = `${randomDuration}s`;
+      });
     }
   </script>
 </body>
