@@ -379,27 +379,31 @@
     let currentQuestion = 0;
     let score1 = 0;
     let score2 = 0;
-  
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
     function startGame() {
       const player1Name = document.getElementById("player1").value || "Player 1";
       const player2Name = document.getElementById("player2").value || "Player 2";
       document.getElementById("player1Name").textContent = player1Name;
       document.getElementById("player2Name").textContent = player2Name;
       document.getElementById("backgroundMusic").play();
+
+      shuffleArray(sentences);
+
       nextQuestion();
     }
-  
+
     function nextQuestion() {
       if (currentQuestion < sentences.length) {
         const question = sentences[currentQuestion];
         document.getElementById("question").textContent = question.sentence;
-  
-        const answerButtons = question.options.map(option => `
-          <button class="answer" onclick="checkAnswer('${option}')">
-            ${option}
-          </button>
-        `).join("");
-  
+        const answerButtons = question.options.map(option => `<button class="answer" onclick="checkAnswer('${option}')"> ${option} </button>`).join("");
         document.getElementById("answers").innerHTML = answerButtons;
       } else {
         document.getElementById("question").textContent = "Game Over!";
@@ -410,7 +414,6 @@
     function checkAnswer(answer) {
       const question = sentences[currentQuestion];
       const correctAnswer = question.correctAnswer;
-
       if (answer === correctAnswer) {
         if (currentPlayer === 1) {
           score1++;
@@ -432,26 +435,22 @@
         alert(`Nice try, ${currentPlayerName}! ${nextPlayerName}'s turn.`);
         currentPlayer = currentPlayer === 1 ? 2 : 1;
       }
-      
       currentQuestion++;
       nextQuestion();
     }
-    
+
     function showWinnerVideo(playerNumber) {
       const winnerVideo = document.getElementById("winnerVideo");
-      winnerVideo.innerHTML = `
-        <video id="winnerVideoPlayer" width="400" controls>
-          <source src="player${playerNumber}-winner.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button id="playVideoButton" class="button">Play Video</button>
-      `;
+      winnerVideo.innerHTML = `<video id="winnerVideoPlayer" width="400" controls>
+        <source src="player${playerNumber}-winner.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button id="playVideoButton" class="button">Play Video</button>`;
       winnerVideo.style.display = "block";
-    
       const playButton = document.getElementById("playVideoButton");
       const videoPlayer = document.getElementById("winnerVideoPlayer");
       const backgroundMusic = document.getElementById("backgroundMusic");
-    
+
       // Pause background music and play the video when the button is clicked
       playButton.addEventListener("click", function() {
         backgroundMusic.pause();
@@ -460,7 +459,7 @@
         });
         playButton.style.display = "none";
       });
-    
+
       // Resume background music when the video ends
       videoPlayer.addEventListener("ended", function() {
         backgroundMusic.play();
