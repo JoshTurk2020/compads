@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Josh's Grammar Game</title>
+  <style>
+    /* CSS styles for the game */
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      background-image: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    }
+    h1 {
+      color: #4a4a4a;
+      font-size: 48px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .player {
+      display: inline-block;
+      margin: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .player:hover {
+      transform: translateY(-5px);
+    }
+    .score {
+      font-size: 36px;
+      color: #ff6b6b;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .question {
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #4a4a4a;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .answer {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 24px;
+      background-color: #4ecdc4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .answer:hover {
+      background-color: #45b8ac;
+      transform: scale(1.05);
+    }
+    .button {
+      padding: 15px 30px;
+      font-size: 24px;
+      background-color: #ff6b6b;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .button:hover {
+      background-color: #ff5252;
+      transform: scale(1.05);
+    }
+    input[type="text"] {
+      padding: 15px;
+      font-size: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Josh's Grammar Game</h1>
+  <div>
+    <label for="player1">Player 1:</label>
+    <input type="text" id="player1" placeholder="Enter name">
+  </div>
+  <div>
+    <label for="player2">Player 2:</label>
+    <input type="text" id="player2" placeholder="Enter name">
+  </div>
+  <button class="button" onclick="startGame()">Start Game</button>
+  <div class="player">
+    <h2 id="player1Name">Player 1</h2>
+    <div class="score" id="score1">0</div>
+  </div>
+  <div class="player">
+    <h2 id="player2Name">Player 2</h2>
+    <div class="score" id="score2">0</div>
+  </div>
+  <div class="question" id="question"></div>
+  <div id="answers"></div>
+  <button class="button" onclick="nextQuestion()">Next Question</button>
+
+  <script>
+    // JavaScript code for the game logic
+    let sentences = [
+      {
+        sentence: "This building is (tall) than the one next to it.",
+        options: ["taller", "more tall", "tallest", "most tall"],
+        correctAnswer: "taller"
+      },
+      {
+        sentence: "She is (pretty) than her sister.",
+        options: ["prettier", "more pretty", "prettiest", "most pretty"],
+        correctAnswer: "prettier"
+      },
+      {
+        sentence: "This book is (interesting) than the one I read last week.",
+        options: ["more interesting", "most interesting", "interestinger", "interestingest"],
+        correctAnswer: "more interesting"
+      },
+      {
+        sentence: "My car is (fast) than yours.",
+        options: ["faster", "more fast", "fastest", "most fast"],
+        correctAnswer: "faster"
+      },
+      {
+        sentence: "This movie is (bad) than the one we watched yesterday.",
+        options: ["worse", "worst", "badder", "baddest"],
+        correctAnswer: "worse"
+      },
+      {
+        sentence: "The weather today is (good) than yesterday.",
+        options: ["better", "best", "gooder", "goodest"],
+        correctAnswer: "better"
+      },
+      {
+        sentence: "This dog is (big) than the one in the park.",
+        options: ["bigger", "more big", "biggest", "most big"],
+        correctAnswer: "bigger"
+      },
+      {
+        sentence: "My new job is (challenging) than my previous one.",
+        options: ["more challenging", "most challenging", "challenginger", "challengingest"],
+        correctAnswer: "more challenging"
+      },
+      {
+        sentence: "This painting is (beautiful) than the one in the museum.",
+        options: ["more beautiful", "most beautiful", "beautifuller", "beautifullest"],
+        correctAnswer: "more beautiful"
+      },
+      {
+        sentence: "The old building is (old) than the new one.",
+        options: ["older", "more old", "oldest", "most old"],
+        correctAnswer: "older"
+      },
+      {
+        sentence: "This decision is (important) than the one we made last year.",
+        options: ["more important", "most important", "importanter", "importantest"],
+        correctAnswer: "more important"
+      },
+      {
+        sentence: "My sister is (tall) than me.",
+        options: ["taller", "more tall", "tallest", "most tall"],
+        correctAnswer: "taller"
+      },
+      {
+        sentence: "This apartment is (small) than the one I used to live in.",
+        options: ["smaller", "more small", "smallest", "most small"],
+        correctAnswer: "smaller"
+      },
+      {
+        sentence: "The new restaurant is (expensive) than the old one.",
+        options: ["more expensive", "most expensive", "expensiver", "expensivest"],
+        correctAnswer: "more expensive"
+      },
+      {
+        sentence: "This coffee is (good) than the one I had yesterday.",
+        options: ["better", "best", "gooder", "goodest"],
+        correctAnswer: "better"
+      },
+      {
+        sentence: "The math problem is (difficult) than I expected.",
+        options: ["more difficult", "most difficult", "difficulter", "difficultest"],
+        correctAnswer: "more difficult"
+      },
+      {
+        sentence: "This puzzle is (easy) than the one I solved last week.",
+        options: ["easier", "easiest", "more easy", "most easy"],
+        correctAnswer: "easier"
+      },
+      {
+        sentence: "The new couch is (comfortable) than the old one.",
+        options: ["more comfortable", "most comfortable", "comfortabler", "comfortablest"],
+        correctAnswer: "more comfortable"
+      },
+      {
+        sentence: "This headache is (bad) than the one I had last month.",
+        options: ["worse", "worst", "badder", "baddest"],
+        correctAnswer: "worse"
+      },
+      {
+        sentence: "The hotel room is (spacious) than I imagined.",
+        options: ["more spacious", "most spacious", "spaciouser", "spaciousest"],
+        correctAnswer: "more spacious"
+      },
+      {
+        sentence: "This museum is (interesting) than the one we visited last year.",
+        options: ["more interesting", "most interesting", "interestinger", "interestingest"],
+        correctAnswer: "more interesting"
+      },
+      {
+        sentence: "The new phone is (expensive) than the previous model.",
+        options: ["more expensive", "most expensive", "expensiver", "expensivest"],
+        correctAnswer: "more expensive"
+      },
+      {
+        sentence: "This beach is (beautiful) than the one we went to last summer.",
+        options: ["more beautiful", "most beautiful", "beautifuller", "beautifullest"],
+        correctAnswer: "more beautiful"
+      },
+      {
+        sentence: "The hike was (challenging) than we anticipated.",
+        options: ["more challenging", "most challenging", "challenginger", "challengingest"],
+        correctAnswer: "more challenging"
+      },
+      {
+        sentence: "This movie is (good) than the one we watched last night.",
+        options: ["better", "best", "gooder", "goodest"],
+        correctAnswer: "better"
+      },
+      {
+        sentence: "The new restaurant has (delicious) food than the old one.",
+        options: ["more delicious", "most delicious", "deliciouser", "deliciousest"],
+        correctAnswer: "more delicious"
+      },
+      {
+        sentence: "This cold is (bad) than the one I had last year.",
+        options: ["worse", "worst", "badder", "baddest"],
+        correctAnswer: "worse"
+      },
+      {
+        sentence: "The new chair is (comfortable) than the old one.",
+        options: ["more comfortable", "most comfortable", "comfortabler", "comfortablest"],
+        correctAnswer: "more comfortable"
+      },
+      {
+        sentence: "This article is (interesting) than the one I read yesterday.",
+        options: ["more interesting", "most interesting", "interestinger", "interestingest"],
+        correctAnswer: "more interesting"
+      },
+      {
+        sentence: "The math test was (difficult) than I expected.",
+        options: ["more difficult", "most difficult", "difficulter", "difficultest"],
+        correctAnswer: "more difficult"
+      },
+      {
+        sentence: "This sunset is (beautiful) than the one we saw last evening.",
+        options: ["more beautiful", "most beautiful", "beautifuller", "beautifullest"],
+        correctAnswer: "more beautiful"
+      },
+      {
+        sentence: "The new game is (challenging) than the previous one.",
+        options: ["more challenging", "most challenging", "challenginger", "challengingest"],
+        correctAnswer: "more challenging"
+      },
+      {
+        sentence: "This joke is (funny) than the one I heard yesterday.",
+        options: ["funnier", "funniest", "more funny", "most funny"],
+        correctAnswer: "funnier"
+      },
+      {
+        sentence: "The new office is (spacious) than the old one.",
+        options: ["more spacious", "most spacious", "spaciouser", "spaciousest"],
+        correctAnswer: "more spacious"
+      },
+      {
+        sentence: "This mistake is (bad) than the one I made last week.",
+        options: ["worse", "worst", "badder", "baddest"],
+        correctAnswer: "worse"
+      },
+      {
+        sentence: "The movie sequel is (good) than the original.",
+        options: ["better", "best", "gooder", "goodest"],
+        correctAnswer: "better"
+      },
+      {
+        sentence: "This book is (interesting) than the one I read last month.",
+        options: ["more interesting", "most interesting", "interestinger", "interestingest"],
+        correctAnswer: "more interesting"
+      },
+      {
+        sentence: "The new restaurant has (delicious) desserts than the old one.",
+        options: ["more delicious", "most delicious", "deliciouser", "deliciousest"],
+        correctAnswer: "more delicious"
+      },
+      {
+        sentence: "This flower arrangement is (beautiful) than the one we saw at the wedding.",
+        options: ["more beautiful", "most beautiful", "beautifuller", "beautifullest"],
+        correctAnswer: "more beautiful"
+      },
+      {
+        sentence: "The new workout routine is (challenging) than the previous one.",
+        options: ["more challenging", "most challenging", "challenginger", "challengingest"],
+        correctAnswer: "more challenging"
+      }
+    ];
+
+    let currentPlayer = 1;
+    let currentQuestion = 0;
+    let score1 = 0;
+    let score2 = 0;
+
+    function startGame() {
+      const player1Name = document.getElementById("player1").value || "Player 1";
+      const player2Name = document.getElementById("player2").value || "Player 2";
+      document.getElementById("player1Name").textContent = player1Name;
+      document.getElementById("player2Name").textContent = player2Name;
+      nextQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < sentences.length) {
+        const question = sentences[currentQuestion];
+        document.getElementById("question").textContent = question.sentence;
+
+        const answerButtons = question.options.map(option => `
+          <button class="answer" onclick="checkAnswer('${option}')">
+            ${option}
+          </button>
+        `).join("");
+
+        document.getElementById("answers").innerHTML = answerButtons;
+      } else {
+        document.getElementById("question").textContent = "Game Over!";
+        document.getElementById("answers").innerHTML = "";
+      }
+    }
+
+    
+    function checkAnswer(answer) {
+      const question = sentences[currentQuestion];
+      const correctAnswer = question.correctAnswer;
+
+      if (answer === correctAnswer) {
+        if (currentPlayer === 1) {
+          score1++;
+          document.getElementById("score1").textContent = score1;
+        } else {
+          score2++;
+          document.getElementById("score2").textContent = score2;
+        }
+      } else {
+        const currentPlayerName = document.getElementById(`player${currentPlayer}Name`).textContent;
+        const nextPlayerName = document.getElementById(`player${currentPlayer === 1 ? 2 : 1}Name`).textContent;
+        alert(`Nice try, ${currentPlayerName}! ${nextPlayerName}'s turn.`);
+        currentPlayer = currentPlayer === 1 ? 2 : 1;
+      }
+      
+      currentQuestion++;
+      nextQuestion();
+    }
+  </script>
+</body>
+</html>
