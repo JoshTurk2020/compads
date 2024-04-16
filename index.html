@@ -424,6 +424,8 @@
           if (score2 === 5) {
             showWinnerVideo(2);
           }
+          const correctSound = new Audio('correct.mp3');
+          correctSound.play();
         }
       } else {
         document.getElementById("incorrectSound").play();
