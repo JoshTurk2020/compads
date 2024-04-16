@@ -97,14 +97,20 @@
     }
     .floating-image {
       position: absolute;
-      animation: floatingAnimation 10s infinite linear;
+      animation: floatingAnimation 10s infinite ease-in-out;
       z-index: -1;
     }
     @keyframes floatingAnimation {
       0% {
         transform: translate(0, 0);
       }
+      25% {
+        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
+      }
       50% {
+        transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
+      }
+      75% {
         transform: translate(calc(Math.random() * 100vw), calc(Math.random() * 100vh));
       }
       100% {
