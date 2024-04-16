@@ -111,204 +111,204 @@
     // JavaScript code for the game logic
     let sentences = [
       {
-        sentence: "This building is (tall) than the one next to it.",
-        options: ["taller", "more tall", "most tall", "tallest"],
-        correctAnswer: "taller"
-      },
-      {
-        sentence: "She is (pretty) than her sister.",
-        options: ["prettier", "prettiest", "more pretty", "most pretty"],
-        correctAnswer: "prettier"
-      },
-      {
-        sentence: "This book is (interesting) than the one I read last week.",
-        options: ["most interesting", "interestinger", "more interesting", "most interesting"],
-        correctAnswer: "more interesting"
-      },
-      {
-        sentence: "My car is (fast) than yours.",
-        options: ["most fast", "faster", "more fast", "fastest"],
-        correctAnswer: "faster"
-      },
-      {
-        sentence: "This movie is (bad) than the one we watched yesterday.",
-        options: ["baddest", "worst", "worse", "badder"],
-        correctAnswer: "worse"
-      },
-      {
-        sentence: "The weather today is (good) than yesterday.",
-        options: ["best", "better", "gooder", "goodest"],
-        correctAnswer: "better"
-      },
-      {
-        sentence: "This dog is (big) than the one in the park.",
-        options: ["biggest", "bigger", "most big", "more big"],
-        correctAnswer: "bigger"
-      },
-      {
-        sentence: "My new job is (challenging) than my previous one.",
-        options: ["most challenging", "more challenging", "challenginger", "challengingest"],
-        correctAnswer: "more challenging"
-      },
-      {
-        sentence: "This painting is (beautiful) than the one in the museum.",
-        options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-        correctAnswer: "more beautiful"
-      },
-      {
-        sentence: "The old building is (old) than the new one.",
-        options: ["most old", "older", "oldest", "more old"],
-        correctAnswer: "older"
-      },
-      {
-        sentence: "This decision is (important) than the one we made last year.",
-        options: ["most important", "importanter", "more important", "importantest"],
-        correctAnswer: "more important"
-      },
-      {
-        sentence: "My sister is (tall) than me.",
-        options: ["taller", "most tall", "tallest", "more tall"],
-        correctAnswer: "taller"
-      },
-      {
-        sentence: "This apartment is (small) than the one I used to live in.",
-        options: ["most small", "smaller", "smallest", "more small"],
-        correctAnswer: "smaller"
-      },
-      {
-        sentence: "The new restaurant is (expensive) than the old one.",
-        options: ["expensivest", "more expensive", "most expensive", "expensiver"],
-        correctAnswer: "more expensive"
-      },
-      {
-        sentence: "This coffee is (good) than the one I had yesterday.",
-        options: ["best", "gooder", "better", "goodest"],
-        correctAnswer: "better"
-      },
-      {
-        sentence: "The math problem is (difficult) than I expected.",
-        options: ["most difficult", "difficulter", "more difficult", "difficultest"],
-        correctAnswer: "more difficult"
-      },
-      {
-        sentence: "This puzzle is (easy) than the one I solved last week.",
-        options: ["easiest", "more easy", "most easy", "easier"],
-        correctAnswer: "easier"
-      },
-      {
-        sentence: "The new couch is (comfortable) than the old one.",
-        options: ["most comfortable", "more comfortable", "comfortabler", "comfortablest"],
-        correctAnswer: "more comfortable"
-      },
-      {
-        sentence: "This headache is (bad) than the one I had last month.",
-        options: ["worst", "worse", "badder", "baddest"],
-        correctAnswer: "worse"
-      },
-      {
-        sentence: "The hotel room is (spacious) than I imagined.",
-        options: ["most spacious", "spaciouser", "spaciousest", "more spacious"],
-        correctAnswer: "more spacious"
-      },
-      {
-        sentence: "This museum is (interesting) than the one we visited last year.",
-        options: ["most interesting", "interestinger", "more interesting", "interestingest"],
-        correctAnswer: "more interesting"
-      },
-      {
-        sentence: "The new phone is (expensive) than the previous model.",
-        options: ["most expensive", "expensiver", "more expensive", "expensivest"],
-        correctAnswer: "more expensive"
-      },
-      {
-        sentence: "This beach is (beautiful) than the one we went to last summer.",
-        options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-        correctAnswer: "more beautiful"
-      },
-      {
-        sentence: "The hike was (challenging) than we anticipated.",
-        options: ["most challenging", "challenginger", "more challenging", "challengingest"],
-        correctAnswer: "more challenging"
-      },
-      {
-        sentence: "This movie is (good) than the one we watched last night.",
-        options: ["best", "gooder", "better", "goodest"],
-        correctAnswer: "better"
-      },
-      {
-        sentence: "The new restaurant has (delicious) food than the old one.",
-        options: ["most delicious", "deliciouser", "more delicious", "deliciousest"],
-        correctAnswer: "more delicious"
-      },
-      {
-        sentence: "This cold is (bad) than the one I had last year.",
-        options: ["worst", "worse", "badder", "baddest"],
-        correctAnswer: "worse"
-      },
-      {
-        sentence: "The new chair is (comfortable) than the old one.",
-        options: ["most comfortable", "comfortabler", "more comfortable", "comfortablest"],
-        correctAnswer: "more comfortable"
-      },
-      {
-        sentence: "This article is (interesting) than the one I read yesterday.",
-        options: ["most interesting", "interestinger", "more interesting", "interestingest"],
-        correctAnswer: "more interesting"
-      },
-      {
-        sentence: "The math test was (difficult) than I expected.",
-        options: ["most difficult", "difficulter", "more difficult", "difficultest"],
-        correctAnswer: "more difficult"
-      },
-      {
-        sentence: "This sunset is (beautiful) than the one we saw last evening.",
-        options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-        correctAnswer: "more beautiful"
-      },
-      {
-        sentence: "The new game is (challenging) than the previous one.",
-        options: ["most challenging", "challenginger", "more challenging", "challengingest"],
-        correctAnswer: "more challenging"
-      },
-      {
-        sentence: "This joke is (funny) than the one I heard yesterday.",
-        options: ["funnier", "most funny", "funniest", "more funny"],
-        correctAnswer: "funnier"
-      },
-      {
-        sentence: "The new office is (spacious) than the old one.",
-        options: ["most spacious", "spaciouser", "spaciousest", "more spacious"],
-        correctAnswer: "more spacious"
-      },
-      {
-        sentence: "This mistake is (bad) than the one I made last week.",
-        options: ["worst", "worse", "badder", "baddest"],
-        correctAnswer: "worse"
-      },
-      {
-        sentence: "The movie sequel is (good) than the original.",
-        options: ["best", "gooder", "better", "goodest"],
-        correctAnswer: "better"
-      },
-      {
-        sentence: "This book is (interesting) than the one I read last month.",
-        options: ["most interesting", "interestinger", "more interesting", "interestingest"],
-        correctAnswer: "more interesting"
-      },
-      {
-        sentence: "The new restaurant has (delicious) desserts than the old one.",
-        options: ["most delicious", "deliciouser", "more delicious", "deliciousest"],
-        correctAnswer: "more delicious"
-      },
-      {
-        sentence: "This flower arrangement is (beautiful) than the one we saw at the wedding.",
-        options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-        correctAnswer: "more beautiful"
-      },
-      {
-        sentence: "The new workout routine is (challenging) than the previous one.",
-        options: ["most challenging", "challenginger", "more challenging", "challengingest"],
-        correctAnswer: "more challenging"
+          sentence: "This building is the (tall) in the city.",
+          options: ["most tall", "taller", "tallest", "more tall"],
+          correctAnswer: "tallest"
+        },
+        {
+          sentence: "She is (pretty) than her sister.",
+          options: ["prettier", "prettiest", "more pretty", "most pretty"],
+          correctAnswer: "prettier"
+        },
+        {
+          sentence: "This is the (interesting) book I've ever read.",
+          options: ["most interesting", "more interesting", "interestinger", "interestingest"],
+          correctAnswer: "most interesting"
+        },
+        {
+          sentence: "My car is (fast) than yours.",
+          options: ["fastest", "more fast", "faster", "most fast"],
+          correctAnswer: "faster"
+        },
+        {
+          sentence: "This is the (bad) movie I've seen in years.",
+          options: ["worse", "worst", "badder", "baddest"],
+          correctAnswer: "worst"
+        },
+        {
+          sentence: "The weather today is (good) than yesterday.",
+          options: ["gooder", "better", "goodest", "best"],
+          correctAnswer: "better"
+        },
+        {
+          sentence: "This is the (big) dog in the neighborhood.",
+          options: ["more big", "most big", "bigger", "biggest"],
+          correctAnswer: "biggest"
+        },
+        {
+          sentence: "My new job is (challenging) than my previous one.",
+          options: ["most challenging", "more challenging", "challenginger", "challengingest"],
+          correctAnswer: "more challenging"
+        },
+        {
+          sentence: "This is the (beautiful) painting in the gallery.",
+          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
+          correctAnswer: "most beautiful"
+        },
+        {
+          sentence: "The old building is (old) than the new one.",
+          options: ["more old", "oldest", "older", "most old"],
+          correctAnswer: "older"
+        },
+        {
+          sentence: "This is the (important) decision of my life.",
+          options: ["importantest", "more important", "most important", "importanter"],
+          correctAnswer: "most important"
+        },
+        {
+          sentence: "My sister is (tall) than me.",
+          options: ["taller", "most tall", "more tall", "tallest"],
+          correctAnswer: "taller"
+        },
+        {
+          sentence: "This is the (small) apartment I've ever lived in.",
+          options: ["more small", "smaller", "smallest", "most small"],
+          correctAnswer: "smallest"
+        },
+        {
+          sentence: "The new restaurant is (expensive) than the old one.",
+          options: ["more expensive", "most expensive", "expensivest", "expensiver"],
+          correctAnswer: "more expensive"
+        },
+        {
+          sentence: "This is the (good) coffee I've ever tasted.",
+          options: ["goodest", "best", "better", "gooder"],
+          correctAnswer: "best"
+        },
+        {
+          sentence: "The math problem is (difficult) than I expected.",
+          options: ["difficulter", "most difficult", "more difficult", "difficultest"],
+          correctAnswer: "more difficult"
+        },
+        {
+          sentence: "This is the (easy) puzzle I've ever solved.",
+          options: ["more easy", "easier", "easiest", "most easy"],
+          correctAnswer: "easiest"
+        },
+        {
+          sentence: "The new couch is the (comfortable) one in the store.",
+          options: ["most comfortable", "comfortablest", "more comfortable", "comfortabler"],
+          correctAnswer: "most comfortable"
+        },
+        {
+          sentence: "This is the (bad) headache I've ever had.",
+          options: ["badder", "baddest", "worse", "worst"],
+          correctAnswer: "worst"
+        },
+        {
+          sentence: "The hotel room is (spacious) than I imagined.",
+          options: ["more spacious", "spaciouser", "spaciousest", "most spacious"],
+          correctAnswer: "more spacious"
+        },
+        {
+          sentence: "This is the (interesting) museum I've visited so far.",
+          options: ["most interesting", "more interesting", "interestinger", "interestingest"],
+          correctAnswer: "most interesting"
+        },
+        {
+          sentence: "The new phone is the (expensive) model on the market.",
+          options: ["expensiver", "expensivest", "more expensive", "most expensive"],
+          correctAnswer: "most expensive"
+        },
+        {
+          sentence: "This is the (beautiful) beach I've ever seen.",
+          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
+          correctAnswer: "most beautiful"
+        },
+        {
+          sentence: "The hike was (challenging) than we anticipated.",
+          options: ["more challenging", "challenginger", "most challenging", "challengingest"],
+          correctAnswer: "more challenging"
+        },
+        {
+          sentence: "This is the (good) movie I've watched this year.",
+          options: ["goodest", "better", "gooder", "best"],
+          correctAnswer: "best"
+        },
+        {
+          sentence: "The new restaurant has (delicious) food than the old one.",
+          options: ["deliciouser", "deliciousest", "more delicious", "most delicious"],
+          correctAnswer: "most delicious"
+        },
+        {
+          sentence: "This is the (bad) cold I've ever had.",
+          options: ["baddest", "badder", "worse", "worst"],
+          correctAnswer: "worst"
+        },
+        {
+          sentence: "The new chair is the (comfortable) one in the office.",
+          options: ["comfortabler", "most comfortable", "more comfortable", "comfortablest"],
+          correctAnswer: "most comfortable"
+        },
+        {
+          sentence: "This is the (interesting) article I've read in a while.",
+          options: ["more interesting", "interestingest", "interestinger", "most interesting"],
+          correctAnswer: "most interesting"
+        },
+        {
+          sentence: "The math test was (difficult) than I expected.",
+          options: ["difficultest", "more difficult", "difficulter", "most difficult"],
+          correctAnswer: "more difficult"
+        },
+        {
+          sentence: "This is the (beautiful) sunset I've ever witnessed.",
+          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
+          correctAnswer: "most beautiful"
+        },
+        {
+          sentence: "The new game is (challenging) than the previous one.",
+          options: ["more challenging", "challenginger", "most challenging", "challengingest"],
+          correctAnswer: "more challenging"
+        },
+        {
+          sentence: "This is the (funny) joke I've heard in a long time.",
+          options: ["more funny", "funnier", "most funny", "funniest"],
+          correctAnswer: "funniest"
+        },
+        {
+          sentence: "The new office is the (spacious) one in the building.",
+          options: ["spaciouser", "more spacious", "spaciousest", "most spacious"],
+          correctAnswer: "most spacious"
+        },
+        {
+          sentence: "This is the (bad) mistake I've ever made.",
+          options: ["worse", "baddest", "badder", "worst"],
+          correctAnswer: "worst"
+        },
+        {
+          sentence: "The movie sequel is (good) than the original.",
+          options: ["best", "gooder", "better", "goodest"],
+          correctAnswer: "better"
+        },
+        {
+          sentence: "This is the (interesting) book I've read in a while.",
+          options: ["interestinger", "most interesting", "interestingest", "more interesting"],
+          correctAnswer: "most interesting"
+        },
+        {
+          sentence: "The new restaurant has the (delicious) desserts in town.",
+          options: ["deliciouser", "most delicious", "more delicious", "deliciousest"],
+          correctAnswer: "most delicious"
+        },
+        {
+          sentence: "This is the (beautiful) flower arrangement I've ever seen.",
+          options: ["more beautiful", "beautifullest", "most beautiful", "beautifuller"],
+          correctAnswer: "most beautiful"
+        },
+        {
+          sentence: "The new workout routine is the (challenging) one I've tried.",
+          options: ["challenginger", "more challenging", "challengingest", "most challenging"],
+          correctAnswer: "most challenging"
       }
     ];
   
