@@ -169,6 +169,7 @@
 
   <audio id="backgroundMusic" src="yellowbird.mp3" loop></audio>
   <audio id="incorrectSound" src="incorrect.mp3"></audio>
+  <audio id="correctSound" src="correct.mp3"></audio>
 
   <script>
     // JavaScript code for the game logic
@@ -375,7 +376,7 @@
       }
     ];
   
-    let currentPlayer = 1;
+        let currentPlayer = 1;
     let currentQuestion = 0;
     let score1 = 0;
     let score2 = 0;
@@ -415,6 +416,7 @@
       const question = sentences[currentQuestion];
       const correctAnswer = question.correctAnswer;
       if (answer === correctAnswer) {
+        document.getElementById("correctSound").play();
         if (currentPlayer === 1) {
           score1++;
           document.getElementById("score1").textContent = score1;
@@ -467,4 +469,4 @@
     }
   </script>
 </body>
-</html>
+</html
