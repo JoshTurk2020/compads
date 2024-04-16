@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Josh's Comparative Adjectives</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* CSS styles for the game */
     body {
@@ -16,10 +17,10 @@
       background-position: center;
     }
     h1 {
-      color: #4a4a4a;
+      color: #fff;
       font-size: 48px;
       margin-bottom: 30px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       animation: textAnimation 2s infinite alternate;
     }
     @keyframes textAnimation {
@@ -51,8 +52,8 @@
     .question {
       font-size: 30px;
       margin-bottom: 30px;
-      color: #4a4a4a;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
     .answer {
       margin: 10px;
@@ -112,6 +113,29 @@
     #winnerVideo {
       display: none;
       margin-top: 20px;
+    }
+    
+    /* Media queries for mobile devices */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+      .player {
+        display: block;
+        margin: 20px auto;
+      }
+      .question {
+        font-size: 24px;
+      }
+      .answer {
+        font-size: 20px;
+      }
+      .button {
+        font-size: 20px;
+      }
+      input[type="text"] {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -442,6 +466,9 @@
         backgroundMusic.play();
       });
     }
+  </script>
+</body>
+</html>
   </script>
 </body>
 </html>
