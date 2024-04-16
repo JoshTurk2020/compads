@@ -15,6 +15,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      position: relative; /* Added for positioning floating images */
     }
     h1 {
       color: #fff;
@@ -340,8 +341,8 @@
     let score1 = 0;
     let score2 = 0;
     let currentQuestion = 0;
-    let winner = "";
 
+    // DOM element references
     const player1Name = document.getElementById("player1Name");
     const player2Name = document.getElementById("player2Name");
     const score1Display = document.getElementById("score1");
@@ -353,43 +354,40 @@
     const incorrectSound = document.getElementById("incorrectSound");
     const correctSound = document.getElementById("correctSound");
 
+    // Function to start the game
     function startGame() {
-      const player1Input = document.getElementById("player1").value;
-      const player2Input = document.getElementById("player2").value;
+      const player1Input = document.getElementById("player1").value.trim();
+      const player2Input = document.getElementById("player2").value.trim();
 
-      if (player1Input.trim() !== "" && player2Input.trim() !== "") {
+      if (player1Input !== "" && player2Input !== "") {
         player1Name.textContent = player1Input;
         player2Name.textContent = player2Input;
-
         currentPlayer = 1;
         score1 = 0;
         score2 = 0;
         currentQuestion = 0;
-        winner = "";
-
+        winnerVideo.style.display = "none";
         updateScore();
         nextQuestion();
-
-        document.querySelector(".button").style.display = "none";
-        document.getElementById("player1").style.display = "none";
-        document.getElementById("player2").style.display = "none";
-
         backgroundMusic.play();
       } else {
         alert("Please enter names for both players to start the game.");
       }
     }
 
+    // Function to display the next question
     function nextQuestion() {
       if (currentQuestion < sentences.length) {
-        questionDisplay.textContent = sentences[currentQuestion].sentence;
-        createAnswerButtons(sentences[currentQuestion].options);
+        const question = sentences[currentQuestion];
+        questionDisplay.textContent = question.sentence;
+        createAnswerButtons(question.options);
         currentQuestion++;
       } else {
         finishGame();
       }
     }
 
+    // Function to create answer buttons
     function createAnswerButtons(options) {
       answersDisplay.innerHTML = "";
       options.forEach((option) => {
@@ -401,6 +399,7 @@
       });
     }
 
+    // Function to check the answer
     function checkAnswer(answer) {
       const correctAnswer = sentences[currentQuestion - 1].correctAnswer;
       if (answer === correctAnswer) {
@@ -419,24 +418,15 @@
       updateScore();
     }
 
+    // Function to update the score display
     function updateScore() {
-      if (currentPlayer === 1) {
-        player1Name.style.fontWeight = "bold";
-        player2Name.style.fontWeight = "normal";
-      } else {
-        player2Name.style.fontWeight = "bold";
-        player1Name.style.fontWeight = "normal";
-      }
+      player1Name.style.fontWeight = currentPlayer === 1 ? "bold" : "normal";
+      player2Name.style.fontWeight = currentPlayer === 2 ? "bold" : "normal";
     }
 
+    // Function to finish the game and show the winner
     function finishGame() {
-      if (score1 > score2) {
-        winner = player1Name.textContent;
-      } else if (score2 > score1) {
-        winner = player2Name.textContent;
-      } else {
-        winner = "It's a tie!";
-      }
+      const winner = score1 > score2 ? player1Name.textContent : score2 > score1 ? player2Name.textContent : "It's a tie!";
       winnerVideo.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/ub82Xb1C8os?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       winnerVideo.style.display = "block";
       backgroundMusic.pause();
