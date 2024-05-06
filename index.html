@@ -164,206 +164,291 @@
   <script>
     // JavaScript code for the game logic
     let sentences = [
-      {
-          sentence: "This building is the (tall) in the city.",
-          options: ["most tall", "taller", "tallest", "more tall"],
-          correctAnswer: "tallest"
+        {
+        sentence: "If I _____ a magic wand, I would turn my boss into a talking llama.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "She is (pretty) than her sister.",
-          options: ["prettier", "prettiest", "more pretty", "most pretty"],
-          correctAnswer: "prettier"
+        sentence: "If I _____ the lottery, I will buy a hot air balloon and travel the world.",
+        options: ["won", "win", "will win", "would win"],
+        correctAnswer: "win"
         },
         {
-          sentence: "This is the (interesting) book I've ever read.",
-          options: ["most interesting", "more interesting", "interestinger", "interestingest"],
-          correctAnswer: "most interesting"
+        sentence: "If I _____ a superhero, my superpower would be the ability to always find the perfect parking spot.",
+        options: ["was", "am", "will be", "would be"],
+        correctAnswer: "were"
         },
         {
-          sentence: "My car is (fast) than yours.",
-          options: ["fastest", "more fast", "faster", "most fast"],
-          correctAnswer: "faster"
+        sentence: "If I _____ studied for the test, I would have aced it and become the class valedictorian.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "This is the (bad) movie I've seen in years.",
-          options: ["worse", "worst", "badder", "baddest"],
-          correctAnswer: "worst"
+        sentence: "If I don't finish my chores, my parents _____ ground me and take away my TikTok privileges.",
+        options: ["will", "would", "had", "have"],
+        correctAnswer: "will"
         },
         {
-          sentence: "The weather today is (good) than yesterday.",
-          options: ["gooder", "better", "goodest", "best"],
-          correctAnswer: "better"
+        sentence: "I _____ created a dish called the 'Cheeseburger Sushi Roll' if I were a famous chef.",
+        options: ["would have", "will have", "had", "have"],
+        correctAnswer: "would have"
         },
         {
-          sentence: "This is the (big) dog in the neighborhood.",
-          options: ["more big", "most big", "bigger", "biggest"],
-          correctAnswer: "biggest"
+        sentence: "If I _____ a pet dragon, I would train it to do my laundry and clean my room.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "My new job is (challenging) than my previous one.",
-          options: ["most challenging", "more challenging", "challenginger", "challengingest"],
-          correctAnswer: "more challenging"
+        sentence: "If I _____ the lottery, I will hire a personal chef to make me gourmet meals, like pizza with pineapple and anchovies.",
+        options: ["win", "won", "will win", "would win"],
+        correctAnswer: "win"
         },
         {
-          sentence: "This is the (beautiful) painting in the gallery.",
-          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-          correctAnswer: "most beautiful"
+        sentence: "If I _____ an animal, I would be a sloth because I would have the perfect excuse to be lazy all day.",
+        options: ["was", "am", "will be", "would be"],
+        correctAnswer: "were"
         },
         {
-          sentence: "The old building is (old) than the new one.",
-          options: ["more old", "oldest", "older", "most old"],
-          correctAnswer: "older"
+        sentence: "If I _____ studied harder in school, I would have become a professional mime and performed in front of adoring crowds.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "This is the (important) decision of my life.",
-          options: ["importantest", "more important", "most important", "importanter"],
-          correctAnswer: "most important"
+        sentence: "If I don't find my missing sock, I _____ have to wear mismatched socks to my job interview.",
+        options: ["will", "would", "had", "have"],
+        correctAnswer: "will"
         },
         {
-          sentence: "My sister is (tall) than me.",
-          options: ["taller", "most tall", "more tall", "tallest"],
-          correctAnswer: "taller"
+        sentence: "I _____ granted wishes for people, but with a twist, like turning their hair into spaghetti, if I were a genie.",
+        options: ["would have", "will have", "had", "have"],
+        correctAnswer: "would have"
         },
         {
-          sentence: "This is the (small) apartment I've ever lived in.",
-          options: ["more small", "smaller", "smallest", "most small"],
-          correctAnswer: "smallest"
+        sentence: "If I _____ a time machine, I would go back and warn my past self not to try juggling chainsaws.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "The new restaurant is (expensive) than the old one.",
-          options: ["more expensive", "most expensive", "expensivest", "expensiver"],
-          correctAnswer: "more expensive"
+        sentence: "If I _____ the lottery, I will build a giant statue of myself made entirely out of jelly beans.",
+        options: ["win", "won", "will win", "would win"],
+        correctAnswer: "win"
         },
         {
-          sentence: "This is the (good) coffee I've ever tasted.",
-          options: ["goodest", "best", "better", "gooder"],
-          correctAnswer: "best"
+        sentence: "I _____ taught my talking chipmunk sidekick to give me terrible advice if I were a superhero.",
+        options: ["would have", "will have", "had", "have"],
+        correctAnswer: "would have"
         },
         {
-          sentence: "The math problem is (difficult) than I expected.",
-          options: ["difficulter", "most difficult", "more difficult", "difficultest"],
-          correctAnswer: "more difficult"
+        sentence: "If I _____ a pet unicorn, I would teach it to jump through hoops of fire.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "This is the (easy) puzzle I've ever solved.",
-          options: ["more easy", "easier", "easiest", "most easy"],
-          correctAnswer: "easiest"
+        sentence: "If I don't finish my taxes on time, I _____ have to beg the IRS for an extension using my best impression of a sad puppy.",
+        options: ["will", "would", "had", "have"],
+        correctAnswer: "will"
         },
         {
-          sentence: "The new couch is the (comfortable) one in the store.",
-          options: ["most comfortable", "comfortablest", "more comfortable", "comfortabler"],
-          correctAnswer: "most comfortable"
+        sentence: "I _____ named my pirate ship the 'SS Sillywilly' and decorated it with glitter and rainbows if I were a pirate.",
+        options: ["would have", "will have", "had", "have"],
+        correctAnswer: "would have"
         },
         {
-          sentence: "This is the (bad) headache I've ever had.",
-          options: ["badder", "baddest", "worse", "worst"],
-          correctAnswer: "worst"
+        sentence: "If I _____ a personal robot assistant, I would program it to do my laundry, cook my meals, and tell me terrible dad jokes.",
+        options: ["had", "have", "will have", "would have"],
+        correctAnswer: "had"
         },
         {
-          sentence: "The hotel room is (spacious) than I imagined.",
-          options: ["more spacious", "spaciouser", "spaciousest", "most spacious"],
-          correctAnswer: "more spacious"
+        sentence: "If I _____ the lottery, I will buy a private island and build a giant water slide that goes directly into the ocean.",
+        options: ["win", "won", "will win", "would win"],
+        correctAnswer: "win"
         },
         {
-          sentence: "This is the (interesting) museum I've visited so far.",
-          options: ["most interesting", "more interesting", "interestinger", "interestingest"],
-          correctAnswer: "most interesting"
+        sentence: "I _____ created a machine that automatically dispenses chocolate chip cookies on demand if I were a famous inventor.",
+        options: ["would have", "will have", "had", "have"],
+        correctAnswer: "would have"
         },
         {
-          sentence: "The new phone is the (expensive) model on the market.",
-          options: ["expensiver", "expensivest", "more expensive", "most expensive"],
-          correctAnswer: "most expensive"
+          {
+        sentence: "I \_\_\_\_\_ my pet rock for three years now, and it's still going strong!",
+        options: ["have had", "had had", "had", "am having"],
+        correctAnswer: "have had"
         },
+        
         {
-          sentence: "This is the (beautiful) beach I've ever seen.",
-          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-          correctAnswer: "most beautiful"
+        sentence: "She \_\_\_\_\_ her hair pink last week, and now she looks like a walking piece of bubblegum.",
+        options: ["dyed", "has dyed", "had dyed", "was dyeing"],
+        correctAnswer: "dyed"
         },
+        
         {
-          sentence: "The hike was (challenging) than we anticipated.",
-          options: ["more challenging", "challenginger", "most challenging", "challengingest"],
-          correctAnswer: "more challenging"
+        sentence: "He \_\_\_\_\_ his car keys in the fridge again, and now he's late for his ice cream delivery job.",
+        options: ["has put", "put", "had put", "is putting"],
+        correctAnswer: "has put"
         },
+        
         {
-          sentence: "This is the (good) movie I've watched this year.",
-          options: ["goodest", "better", "gooder", "best"],
-          correctAnswer: "best"
+        sentence: "They \_\_\_\_\_ a world record for the largest human pyramid made entirely of clowns before the circus tent collapsed.",
+        options: ["had set", "have set", "set", "are setting"],
+        correctAnswer: "had set"
         },
+        
         {
-          sentence: "The new restaurant has (delicious) food than the old one.",
-          options: ["deliciouser", "deliciousest", "more delicious", "most delicious"],
-          correctAnswer: "most delicious"
+        sentence: "I \_\_\_\_\_ my imaginary friend for years, but now he's demanding a salary.",
+        options: ["have known", "knew", "had known", "am knowing"],
+        correctAnswer: "have known"
         },
+        
         {
-          sentence: "This is the (bad) cold I've ever had.",
-          options: ["baddest", "badder", "worse", "worst"],
-          correctAnswer: "worst"
+        sentence: "She \_\_\_\_\_ her password to 'password123' before realizing it was a terrible idea.",
+        options: ["had changed", "has changed", "changed", "is changing"],
+        correctAnswer: "had changed"
         },
+        
         {
-          sentence: "The new chair is the (comfortable) one in the office.",
-          options: ["comfortabler", "most comfortable", "more comfortable", "comfortablest"],
-          correctAnswer: "most comfortable"
+        sentence: "They \_\_\_\_\_ a time machine out of a DeLorean, but now they're stuck in the '80s with big hair and neon clothes.",
+        options: ["have built", "built", "had built", "are building"],
+        correctAnswer: "have built"
         },
+        
         {
-          sentence: "This is the (interesting) article I've read in a while.",
-          options: ["more interesting", "interestingest", "interestinger", "most interesting"],
-          correctAnswer: "most interesting"
+        sentence: "I \_\_\_\_\_ a ghost in my attic, but it turns out it was just my roommate practicing his saxophone.",
+        options: ["have heard", "heard", "had heard", "am hearing"],
+        correctAnswer: "heard"
         },
+        
         {
-          sentence: "The math test was (difficult) than I expected.",
-          options: ["difficultest", "more difficult", "difficulter", "most difficult"],
-          correctAnswer: "more difficult"
+        sentence: "He \_\_\_\_\_ a world record for the most pancakes eaten in one sitting before he discovered his maple syrup allergy.",
+        options: ["had broken", "has broken", "broke", "is breaking"],
+        correctAnswer: "had broken"
         },
+        
         {
-          sentence: "This is the (beautiful) sunset I've ever witnessed.",
-          options: ["beautifullest", "more beautiful", "most beautiful", "beautifuller"],
-          correctAnswer: "most beautiful"
+        sentence: "I \_\_\_\_\_ my best friend's secret recipe, and now I'm banned from all potluck dinners.",
+        options: ["have stolen", "stole", "had stolen", "am stealing"],
+        correctAnswer: "stole"
         },
+        
         {
-          sentence: "The new game is (challenging) than the previous one.",
-          options: ["more challenging", "challenginger", "most challenging", "challengingest"],
-          correctAnswer: "more challenging"
+        sentence: "She \_\_\_\_\_ her pet rock collection for years, and now it takes up an entire room in her house.",
+        options: ["has maintained", "maintained", "had maintained", "is maintaining"],
+        correctAnswer: "has maintained"
         },
+        
         {
-          sentence: "This is the (funny) joke I've heard in a long time.",
-          options: ["more funny", "funnier", "most funny", "funniest"],
-          correctAnswer: "funniest"
+        sentence: "They \_\_\_\_\_ a language made entirely of emojis before realizing it was impossible to express sarcasm.",
+        options: ["had invented", "have invented", "invented", "are inventing"],
+        correctAnswer: "had invented"
         },
+        
         {
-          sentence: "The new office is the (spacious) one in the building.",
-          options: ["spaciouser", "more spacious", "spaciousest", "most spacious"],
-          correctAnswer: "most spacious"
+        sentence: "I \_\_\_\_\_ my neighbor's lawn gnome, and now I'm engaged in a high-stakes game of hide-and-seek.",
+        options: ["have kidnapped", "kidnapped", "had kidnapped", "am kidnapping"],
+        correctAnswer: "have kidnapped"
         },
+        
         {
-          sentence: "This is the (bad) mistake I've ever made.",
-          options: ["worse", "baddest", "badder", "worst"],
-          correctAnswer: "worst"
+        sentence: "He \_\_\_\_\_ his eyebrows off in a freak grilling accident, and now he's rocking the no-brow look.",
+        options: ["has singed", "singed", "had singed", "is singeing"],
+        correctAnswer: "singed"
         },
+        
         {
-          sentence: "The movie sequel is (good) than the original.",
-          options: ["best", "gooder", "better", "goodest"],
-          correctAnswer: "better"
+        sentence: "They \_\_\_\_\_ a world record for the largest human smiley face before everyone's cheeks started cramping.",
+        options: ["had formed", "have formed", "formed", "are forming"],
+        correctAnswer: "had formed"
         },
+        
         {
-          sentence: "This is the (interesting) book I've read in a while.",
-          options: ["interestinger", "most interesting", "interestingest", "more interesting"],
-          correctAnswer: "most interesting"
+        sentence: "I \_\_\_\_\_ my cat to play the piano, but now he only performs at 3 AM.",
+        options: ["have taught", "taught", "had taught", "am teaching"],
+        correctAnswer: "have taught"
         },
+        
         {
-          sentence: "The new restaurant has the (delicious) desserts in town.",
-          options: ["deliciouser", "most delicious", "more delicious", "deliciousest"],
-          correctAnswer: "most delicious"
+        sentence: "She \_\_\_\_\_ her hair in a beehive style for a '60s-themed party, and now she can't fit through doorways.",
+        options: ["has styled", "styled", "had styled", "is styling"],
+        correctAnswer: "styled"
         },
+        
         {
-          sentence: "This is the (beautiful) flower arrangement I've ever seen.",
-          options: ["more beautiful", "beautifullest", "most beautiful", "beautifuller"],
-          correctAnswer: "most beautiful"
+        sentence: "They \_\_\_\_\_ a haunted house in their basement before realizing the ghosts were just their kids in costumes.",
+        options: ["had created", "have created", "created", "are creating"],
+        correctAnswer: "had created"
         },
+        
         {
-          sentence: "The new workout routine is the (challenging) one I've tried.",
-          options: ["challenginger", "more challenging", "challengingest", "most challenging"],
-          correctAnswer: "most challenging"
-      }
+        sentence: "I \_\_\_\_\_ a world record for the most consecutive hours spent watching cat videos, and now I see cats everywhere.",
+        options: ["have broken", "broke", "had broken", "am breaking"],
+        correctAnswer: "broke"
+        },
+        
+        {
+        sentence: "He \_\_\_\_\_ his car to run on used cooking oil, and now it smells like a fast food restaurant.",
+        options: ["has converted", "converted", "had converted", "is converting"],
+        correctAnswer: "has converted"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ a secret handshake that involves 27 steps and a backflip before simplifying it to a fist bump.",
+        options: ["had invented", "have invented", "invented", "are inventing"],
+        correctAnswer: "had invented"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ a world record for the most consecutive days wearing the same pair of socks, and now I'm a cautionary tale for hygiene.",
+        options: ["have set", "set", "had set", "am setting"],
+        correctAnswer: "set"
+        },
+        
+        {
+        sentence: "She \_\_\_\_\_ a language made entirely of whistles, but now she can only communicate with dolphins.",
+        options: ["has learned", "learned", "had learned", "is learning"],
+        correctAnswer: "has learned"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ a giant sculpture made entirely of used chewing gum before the city made them take it down.",
+        options: ["had built", "have built", "built", "are building"],
+        correctAnswer: "had built"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my pet rock for a walk, but now it's lost and I can't find it anywhere.",
+        options: ["have taken", "took", "had taken", "am taking"],
+        correctAnswer: "took"
+        },
+        
+        {
+        sentence: "He \_\_\_\_\_ his house to be entirely powered by hamsters on wheels before realizing it was impractical.",
+        options: ["had converted", "has converted", "converted", "is converting"],
+        correctAnswer: "had converted"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ a world record for the most people dressed as leprechauns in one place, and now they can't stop speaking in Irish accents.",
+        options: ["have broken", "broke", "had broken", "are breaking"],
+        correctAnswer: "broke"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ a book on procrastination, but I haven't gotten around to reading it yet.",
+        options: ["have bought", "bought", "had bought", "am buying"],
+        correctAnswer: "bought"
+        },
+        
+        {
+        sentence: "She \_\_\_\_\_ her cat's birthday every year with a tuna cake and catnip piñata before the cat developed a food intolerance.",
+        options: ["had celebrated", "has celebrated", "celebrated", "is celebrating"],
+        correctAnswer: "had celebrated"
+        },
+        
+        {
+        sentence: "He \_\_\_\_\_ a novel about a man who turns into a banana before realizing it was a bit too niche.",
+        options: ["had written", "has written", "wrote", "is writing"],
+        correctAnswer: "had written"
+        }
     ];
   
     let currentPlayer = 1;
@@ -410,13 +495,13 @@
         if (currentPlayer === 1) {
           score1++;
           document.getElementById("score1").textContent = score1;
-          if (score1 === 20) {
+          if (score1 === 30) {
             showWinnerVideo(1);
           }
         } else {
           score2++;
           document.getElementById("score2").textContent = score2;
-          if (score2 === 20) {
+          if (score2 === 30) {
             showWinnerVideo(2);
           }
         }
