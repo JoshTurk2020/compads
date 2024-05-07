@@ -165,270 +165,123 @@
     // JavaScript code for the game logic
     let sentences = [
         {
-        sentence: "If I _____ a magic wand, I would turn my boss into a talking llama.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
+        sentence: "If I _____ enough money, I will buy a new car.",
+        options: ["save", "will save", "saved", "would save"],
+        correctAnswer: "save"
         },
+        
         {
-        sentence: "If I _____ the lottery, I will buy a hot air balloon and travel the world.",
-        options: ["won", "win", "will win", "would win"],
-        correctAnswer: "win"
+        sentence: "If it _____ tomorrow, we will cancel the picnic.",
+        options: ["rains", "will rain", "rained", "would rain"],
+        correctAnswer: "rains"
         },
+        
         {
-        sentence: "If I _____ a superhero, my superpower would be the ability to always find the perfect parking spot.",
-        options: ["was", "am", "will be", "would be"],
-        correctAnswer: "were"
+        sentence: "If she _____ the bus, she would be late for work.",
+        options: ["missed", "will miss", "misses", "would miss"],
+        correctAnswer: "missed"
         },
+        
         {
-        sentence: "If I _____ studied for the test, I would have aced it and become the class valedictorian.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
-        },
-        {
-        sentence: "If I don't finish my chores, my parents _____ ground me and take away my TikTok privileges.",
-        options: ["will", "would", "had", "have"],
-        correctAnswer: "will"
-        },
-        {
-        sentence: "I _____ create a dish called the 'Cheeseburger Sushi Roll' if I were a famous chef.",
-        options: ["would", "will have", "had", "have"],
-        correctAnswer: "would"
-        },
-        {
-        sentence: "If I _____ a pet dragon, I would train it to do my laundry and clean my room.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
-        },
-        {
-        sentence: "If I _____ the lottery, I will hire a personal chef to make me gourmet meals, like pizza with pineapple and anchovies.",
-        options: ["win", "won", "will win", "would win"],
-        correctAnswer: "win"
-        },
-        {
-        sentence: "If I _____ an animal, I would be a sloth because I would have the perfect excuse to be lazy all day.",
-        options: ["was", "am", "will be", "would be"],
-        correctAnswer: "were"
-        },
-        {
-        sentence: "If I _____ studied harder in school, I could become the President.",
-        options: ["will study", "study", "studied", "had studied"],
+        sentence: "If they _____ harder, they would pass the exam.",
+        options: ["studied", "will study", "study", "would study"],
         correctAnswer: "studied"
         },
+        
         {
-        sentence: "If I don't find my missing sock, I _____ have to wear mismatched socks to my job interview.",
-        options: ["will", "would", "had", "have"],
-        correctAnswer: "will"
+        sentence: "If I _____ her number, I would call her.",
+        options: ["knew", "will know", "know", "would know"],
+        correctAnswer: "knew"
         },
+        
         {
-        sentence: "I _____ granted wishes for people, but with a twist, like turning their hair into spaghetti, if I were a genie.",
-        options: ["can", "could", "could not", "will"],
-        correctAnswer: "could"
+        sentence: "If you _____ spicy food, your stomach will hurt.",
+        options: ["eat", "will eat", "ate", "would eat"],
+        correctAnswer: "eat"
         },
+        
         {
-        sentence: "If I _____ a time machine, I would go back and warn my past self not to try juggling chainsaws.",
+        sentence: "If he _____ the lottery, he would quit his job.",
+        options: ["won", "will win", "wins", "would win"],
+        correctAnswer: "won"
+        },
+        
+        {
+        sentence: "If I _____ you, I would apologize.",
+        options: ["were", "will be", "am", "would be"],
+        correctAnswer: "were"
+        },
+        
+        {
+        sentence: "If she _____ coffee, she gets a headache.",
+        options: ["doesn't drink", "won't drink", "didn't drink", "wouldn't drink"],
+        correctAnswer: "doesn't drink"
+        },
+        
+        {
+        sentence: "If they _____ the concert tickets, they will be very happy.",
+        options: ["get", "will get", "got", "would get"],
+        correctAnswer: "get"
+        },
+        
+        {
+        sentence: "If he _____ more careful, he wouldn't have an accident.",
+        options: ["is", "will be", "were", "would be"],
+        correctAnswer: "were"
+        },
+        
+        {
+        sentence: "If I _____ a car, I would drive to the beach.",
         options: ["had", "have", "will have", "would have"],
         correctAnswer: "had"
         },
+        
         {
-        sentence: "If I _____ the lottery, I will build a giant statue of myself made entirely out of jelly beans.",
-        options: ["win", "won", "will win", "would win"],
-        correctAnswer: "win"
+        sentence: "If she _____ the truth, she wouldn't be in trouble.",
+        options: ["told", "will tell", "tells", "would tell"],
+        correctAnswer: "told"
         },
+        
         {
-        sentence: "I _____ teach my talking chipmunk sidekick to give me terrible advice if I were a superhero.",
-        options: ["would", "will", "had", "have"],
-        correctAnswer: "would"
+        sentence: "If you _____ me, I will help you.",
+        options: ["ask", "will ask", "asked", "would ask"],
+        correctAnswer: "ask"
         },
+        
         {
-        sentence: "If I _____ a pet unicorn, I would teach it to jump through hoops of fire.",
+        sentence: "If they _____ more money, they could buy a bigger house.",
         options: ["had", "have", "will have", "would have"],
         correctAnswer: "had"
         },
+        
         {
-        sentence: "If I don't finish my taxes on time, I _____ have to beg the IRS for an extension using my best impression of a sad puppy.",
-        options: ["will", "would", "had", "have"],
-        correctAnswer: "will"
-        },
-        {
-        sentence: "I _____ name my pirate ship the 'SS Sillywilly' and decorated it with glitter and rainbows if I were a pirate.",
-        options: ["can", "could", "had", "have"],
-        correctAnswer: "could"
-        },
-        {
-        sentence: "If I _____ a personal robot assistant, I would program it to do my laundry, cook my meals, and tell me terrible dad jokes.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
-        },
-        {
-        sentence: "If I _____ the lottery, I will buy a private island and build a giant water slide that goes directly into the ocean.",
-        options: ["win", "won", "will win", "would win"],
-        correctAnswer: "win"
-        },
-        {
-        sentence: "I _____ create a machine that automatically dispenses chocolate chip cookies on demand if I were a famous inventor.",
-        options: ["would", "will", "had", "have"],
-        correctAnswer: "would"
-        },
-        {
-        sentence: "I \_\_\_\_\_ my pet rock for three years now, and it's still going strong!",
-        options: ["have had", "had had", "had", "am having"],
-        correctAnswer: "have had"
+        sentence: "If he _____ to the gym regularly, he will lose weight.",
+        options: ["goes", "will go", "went", "would go"],
+        correctAnswer: "goes"
         },
         
         {
-        sentence: "She \_\_\_\_\_ her hair pink last week, and now she looks like a walking piece of bubblegum.",
-        options: ["dyed", "has dyed", "had dyed", "was dyeing"],
-        correctAnswer: "dyed"
+        sentence: "If I _____ the answer, I would tell you.",
+        options: ["knew", "will know", "know", "would know"],
+        correctAnswer: "knew"
         },
         
         {
-        sentence: "He \_\_\_\_\_ his car keys in the fridge again, and now he's late for his ice cream delivery job.",
-        options: ["has put", "put", "had put", "is putting"],
-        correctAnswer: "has put"
+        sentence: "If she _____ harder, she will get a promotion.",
+        options: ["works", "will work", "worked", "would work"],
+        correctAnswer: "works"
         },
         
         {
-        sentence: "They \_\_\_\_\_ a world record for the largest human pyramid made entirely of clowns before the circus tent collapsed.",
-        options: ["had set", "have set", "set", "are setting"],
-        correctAnswer: "had set"
+        sentence: "If they _____ their project on time, they would get a better grade.",
+        options: ["finished", "will finish", "finish", "would finish"],
+        correctAnswer: "finished"
         },
         
         {
-        sentence: "I \_\_\_\_\_ my imaginary friend for years, but now he's demanding a salary.",
-        options: ["have known", "knew", "had known", "am knowing"],
-        correctAnswer: "have known"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her password to 'password123' before realizing it was a terrible idea.",
-        options: ["had changed", "has changed", "changed", "is changing"],
-        correctAnswer: "had changed"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a time machine out of a DeLorean, but now they're stuck in the '80s with big hair and neon clothes.",
-        options: ["have built", "built", "had built", "are building"],
-        correctAnswer: "have built"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ a ghost in my attic, but it turns out it was just my roommate practicing his saxophone.",
-        options: ["have heard", "heard", "had heard", "am hearing"],
-        correctAnswer: "heard"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ a world record for the most pancakes eaten in one sitting before he discovered his maple syrup allergy.",
-        options: ["had broken", "has broken", "broke", "is breaking"],
-        correctAnswer: "had broken"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my best friend's secret recipe, and now I'm banned from all potluck dinners.",
-        options: ["have stolen", "stole", "had stolen", "am stealing"],
-        correctAnswer: "stole"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her pet rock collection for years, and now it takes up an entire room in her house.",
-        options: ["has maintained", "maintained", "had maintained", "is maintaining"],
-        correctAnswer: "has maintained"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a language made entirely of emojis before realizing it was impossible to express sarcasm.",
-        options: ["had invented", "have invented", "invented", "are inventing"],
-        correctAnswer: "had invented"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my neighbor's lawn gnome, and now I'm engaged in a high-stakes game of hide-and-seek.",
-        options: ["have kidnapped", "kidnapped", "had kidnapped", "am kidnapping"],
-        correctAnswer: "have kidnapped"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ his eyebrows off in a freak grilling accident, and now he's rocking the no-brow look.",
-        options: ["has singed", "singed", "had singed", "is singeing"],
-        correctAnswer: "singed"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a world record for the largest human smiley face before everyone's cheeks started cramping.",
-        options: ["had formed", "have formed", "formed", "are forming"],
-        correctAnswer: "had formed"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my cat to play the piano, but now he only performs at 3 AM.",
-        options: ["have taught", "taught", "had taught", "am teaching"],
-        correctAnswer: "have taught"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her hair in a beehive style for a '60s-themed party, and now she can't fit through doorways.",
-        options: ["has styled", "styled", "had styled", "is styling"],
-        correctAnswer: "styled"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a haunted house in their basement before realizing the ghosts were just their kids in costumes.",
-        options: ["had created", "have created", "created", "are creating"],
-        correctAnswer: "had created"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ a world record for the most consecutive hours spent watching cat videos, and now I see cats everywhere.",
-        options: ["have broken", "broke", "had broken", "am breaking"],
-        correctAnswer: "broke"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ his car to run on used cooking oil, and now it smells like a fast food restaurant.",
-        options: ["has converted", "converted", "had converted", "is converting"],
-        correctAnswer: "has converted"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a secret handshake that involves 27 steps and a backflip before simplifying it to a fist bump.",
-        options: ["had invented", "have invented", "invented", "are inventing"],
-        correctAnswer: "had invented"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ a world record for the most consecutive days wearing the same pair of socks, and now I'm a cautionary tale for hygiene.",
-        options: ["have set", "set", "had set", "am setting"],
-        correctAnswer: "set"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ a language made entirely of whistles, but now she can only communicate with dolphins.",
-        options: ["has learned", "learned", "had learned", "is learning"],
-        correctAnswer: "has learned"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a giant sculpture made entirely of used chewing gum before the city made them take it down.",
-        options: ["had built", "have built", "built", "are building"],
-        correctAnswer: "had built"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my pet rock for a walk, but now it's lost and I can't find it anywhere.",
-        options: ["have taken", "took", "had taken", "am taking"],
-        correctAnswer: "took"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ his house to be entirely powered by hamsters on wheels before realizing it was impractical.",
-        options: ["had converted", "has converted", "converted", "is converting"],
-        correctAnswer: "had converted"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ a world record for the most people dressed as leprechauns in one place, and now they can't stop speaking in Irish accents.",
-        options: ["have broken", "broke", "had broken", "are breaking"],
-        correctAnswer: "broke"
+        sentence: "If you _____ smoking, your health will improve.",
+        options: ["quit", "will quit", "quitted", "would quit"],
+        correctAnswer: "quit"
         },
         
         {
@@ -447,6 +300,126 @@
         sentence: "He \_\_\_\_\_ a novel about a man who turns into a banana before realizing it was a bit too niche.",
         options: ["had written", "has written", "wrote", "is writing"],
         correctAnswer: "had written"
+        },
+
+        {
+        sentence: "She \_\_\_\_\_ her keys, so she can't get into her house.",
+        options: ["has lost", "lost", "had lost", "is losing"],
+        correctAnswer: "has lost"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ the movie twice because they enjoyed it so much.",
+        options: ["have watched", "watched", "had watched", "are watching"],
+        correctAnswer: "have watched"
+        },
+        
+        {
+        sentence: "By the time we arrived at the theater, the movie \_\_\_\_\_.",
+        options: ["has started", "started", "had started", "is starting"],
+        correctAnswer: "had started"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my best friend since we were in elementary school.",
+        options: ["have known", "knew", "had known", "am knowing"],
+        correctAnswer: "have known"
+        },
+        
+        {
+        sentence: "Before she moved to New York, she \_\_\_\_\_ in London for five years.",
+        options: ["has lived", "lived", "had lived", "is living"],
+        correctAnswer: "had lived"
+        },
+        
+        {
+        sentence: "He \_\_\_\_\_ his homework yet, so he can't go out with his friends.",
+        options: ["hasn't finished", "didn't finish", "hadn't finished", "isn't finishing"],
+        correctAnswer: "hasn't finished"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my car keys, but I can't remember where I put them.",
+        options: ["have lost", "lost", "had lost", "am losing"],
+        correctAnswer: "have lost"
+        },
+        
+        {
+        sentence: "She \_\_\_\_\_ three cups of coffee today.",
+        options: ["has drunk", "drank", "had drunk", "is drinking"],
+        correctAnswer: "has drunk"
+        },
+        
+        {
+        sentence: "By the time I got to the store, they \_\_\_\_\_ out of my favorite snack.",
+        options: ["have run", "ran", "had run", "are running"],
+        correctAnswer: "had run"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ the championship game last year.",
+        options: ["have won", "won", "had won", "are winning"],
+        correctAnswer: "won"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my passport, so I need to apply for a new one.",
+        options: ["have lost", "lost", "had lost", "am losing"],
+        correctAnswer: "have lost"
+        },
+        
+        {
+        sentence: "She \_\_\_\_\_ her phone twice this month.",
+        options: ["has broken", "broke", "had broken", "is breaking"],
+        correctAnswer: "has broken"
+        },
+        
+        {
+        sentence: "Before he started his own business, he \_\_\_\_\_ for a large corporation.",
+        options: ["has worked", "worked", "had worked", "is working"],
+        correctAnswer: "had worked"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my coffee, so I'll have to make another cup.",
+        options: ["have spilled", "spilled", "had spilled", "am spilling"],
+        correctAnswer: "have spilled"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ their flight, so they had to book a new one.",
+        options: ["have missed", "missed", "had missed", "are missing"],
+        correctAnswer: "missed"
+        },
+        
+        {
+        sentence: "She \_\_\_\_\_ her ankle while playing soccer.",
+        options: ["has twisted", "twisted", "had twisted", "is twisting"],
+        correctAnswer: "twisted"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my favorite shirt in the dryer.",
+        options: ["have shrunk", "shrank", "had shrunk", "am shrinking"],
+        correctAnswer: "have shrunk"
+        },
+        
+        {
+        sentence: "He \_\_\_\_\_ his wallet at the restaurant, but luckily someone turned it in.",
+        options: ["has left", "left", "had left", "is leaving"],
+        correctAnswer: "left"
+        },
+        
+        {
+        sentence: "They \_\_\_\_\_ their project, so they can relax this weekend.",
+        options: ["have finished", "finished", "had finished", "are finishing"],
+        correctAnswer: "have finished"
+        },
+        
+        {
+        sentence: "I \_\_\_\_\_ my car to the mechanic three times this month.",
+        options: ["have taken", "took", "had taken", "am taking"],
+        correctAnswer: "have taken"
         }
     ];
   
