@@ -164,263 +164,221 @@
   <script>
     // JavaScript code for the game logic
     let sentences = [
-        {
-        sentence: "If I _____ enough money, I will buy a new car.",
-        options: ["save", "will save", "saved", "would save"],
-        correctAnswer: "save"
-        },
-        
-        {
-        sentence: "If it _____ tomorrow, we will cancel the picnic.",
-        options: ["rains", "will rain", "rained", "would rain"],
-        correctAnswer: "rains"
-        },
-        
-        {
-        sentence: "If she _____ the bus, she would be late for work.",
-        options: ["missed", "will miss", "misses", "would miss"],
-        correctAnswer: "missed"
-        },
-        
-        {
-        sentence: "If they _____ harder, they would pass the exam.",
-        options: ["studied", "will study", "study", "would study"],
-        correctAnswer: "studied"
-        },
-        
-        {
-        sentence: "If I _____ her number, I would call her.",
-        options: ["knew", "will know", "know", "would know"],
-        correctAnswer: "knew"
-        },
-        
-        {
-        sentence: "If you _____ spicy food, your stomach will hurt.",
-        options: ["eat", "will eat", "ate", "would eat"],
-        correctAnswer: "eat"
-        },
-        
-        {
-        sentence: "If he _____ the lottery, he would quit his job.",
-        options: ["won", "will win", "wins", "would win"],
-        correctAnswer: "won"
-        },
-        
-        {
-        sentence: "If I _____ you, I would apologize.",
-        options: ["were", "will be", "am", "would be"],
-        correctAnswer: "were"
-        },
-        
-        {
-        sentence: "If she _____ coffee, she gets a headache.",
-        options: ["doesn't drink", "won't drink", "didn't drink", "wouldn't drink"],
-        correctAnswer: "doesn't drink"
-        },
-        
-        {
-        sentence: "If they _____ the concert tickets, they will be very happy.",
-        options: ["get", "will get", "got", "would get"],
-        correctAnswer: "get"
-        },
-        
-        {
-        sentence: "If he _____ more careful, he wouldn't have an accident.",
-        options: ["is", "will be", "were", "would be"],
-        correctAnswer: "were"
-        },
-        
-        {
-        sentence: "If I _____ a car, I would drive to the beach.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
-        },
-        
-        {
-        sentence: "If she _____ the truth, she wouldn't be in trouble.",
-        options: ["told", "will tell", "tells", "would tell"],
-        correctAnswer: "told"
-        },
-        
-        {
-        sentence: "If you _____ me, I will help you.",
-        options: ["ask", "will ask", "asked", "would ask"],
-        correctAnswer: "ask"
-        },
-        
-        {
-        sentence: "If they _____ more money, they could buy a bigger house.",
-        options: ["had", "have", "will have", "would have"],
-        correctAnswer: "had"
-        },
-        
-        {
-        sentence: "If he _____ to the gym regularly, he will lose weight.",
-        options: ["goes", "will go", "went", "would go"],
-        correctAnswer: "goes"
-        },
-        
-        {
-        sentence: "If I _____ the answer, I would tell you.",
-        options: ["knew", "will know", "know", "would know"],
-        correctAnswer: "knew"
-        },
-        
-        {
-        sentence: "If she _____ harder, she will get a promotion.",
-        options: ["works", "will work", "worked", "would work"],
-        correctAnswer: "works"
-        },
-        
-        {
-        sentence: "If they _____ their project on time, they would get a better grade.",
-        options: ["finished", "will finish", "finish", "would finish"],
-        correctAnswer: "finished"
-        },
-        
-        {
-        sentence: "If you _____ smoking, your health will improve.",
-        options: ["quit", "will quit", "quitted", "would quit"],
-        correctAnswer: "quit"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ a book on procrastination, but I haven't gotten around to reading it yet.",
-        options: ["have bought", "bought", "had bought", "am buying"],
-        correctAnswer: "bought"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her cat's birthday every year with a tuna cake and catnip piñata before the cat developed a food intolerance.",
-        options: ["had celebrated", "has celebrated", "celebrated", "is celebrating"],
-        correctAnswer: "had celebrated"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ a novel about a man who turns into a banana before realizing it was a bit too niche.",
-        options: ["had written", "has written", "wrote", "is writing"],
-        correctAnswer: "had written"
-        },
-
-        {
-        sentence: "She \_\_\_\_\_ her keys, so she can't get into her house.",
-        options: ["has lost", "lost", "had lost", "is losing"],
-        correctAnswer: "has lost"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ the movie twice because they enjoyed it so much.",
-        options: ["have watched", "watched", "had watched", "are watching"],
-        correctAnswer: "have watched"
-        },
-        
-        {
-        sentence: "By the time we arrived at the theater, the movie \_\_\_\_\_.",
-        options: ["has started", "started", "had started", "is starting"],
-        correctAnswer: "had started"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my best friend since we were in elementary school.",
-        options: ["have known", "knew", "had known", "am knowing"],
-        correctAnswer: "have known"
-        },
-        
-        {
-        sentence: "Before she moved to New York, she \_\_\_\_\_ in London for five years.",
-        options: ["has lived", "lived", "had lived", "is living"],
-        correctAnswer: "had lived"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ his homework yet, so he can't go out with his friends.",
-        options: ["hasn't finished", "didn't finish", "hadn't finished", "isn't finishing"],
-        correctAnswer: "hasn't finished"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my car keys, but I can't remember where I put them.",
-        options: ["have lost", "lost", "had lost", "am losing"],
-        correctAnswer: "have lost"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ three cups of coffee today.",
-        options: ["has drunk", "drank", "had drunk", "is drinking"],
-        correctAnswer: "has drunk"
-        },
-        
-        {
-        sentence: "By the time I got to the store, they \_\_\_\_\_ out of my favorite snack.",
-        options: ["have run", "ran", "had run", "are running"],
-        correctAnswer: "had run"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ the championship game last year.",
-        options: ["have won", "won", "had won", "are winning"],
-        correctAnswer: "won"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my passport, so I need to apply for a new one.",
-        options: ["have lost", "lost", "had lost", "am losing"],
-        correctAnswer: "have lost"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her phone twice this month.",
-        options: ["has broken", "broke", "had broken", "is breaking"],
-        correctAnswer: "has broken"
-        },
-        
-        {
-        sentence: "Before he started his own business, he \_\_\_\_\_ for a large corporation.",
-        options: ["has worked", "worked", "had worked", "is working"],
-        correctAnswer: "had worked"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my coffee, so I'll have to make another cup.",
-        options: ["have spilled", "spilled", "had spilled", "am spilling"],
-        correctAnswer: "have spilled"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ their flight, so they had to book a new one.",
-        options: ["have missed", "missed", "had missed", "are missing"],
-        correctAnswer: "missed"
-        },
-        
-        {
-        sentence: "She \_\_\_\_\_ her ankle while playing soccer.",
-        options: ["has twisted", "twisted", "had twisted", "is twisting"],
-        correctAnswer: "twisted"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my favorite shirt in the dryer.",
-        options: ["have shrunk", "shrank", "had shrunk", "am shrinking"],
-        correctAnswer: "have shrunk"
-        },
-        
-        {
-        sentence: "He \_\_\_\_\_ his wallet at the restaurant, but luckily someone turned it in.",
-        options: ["has left", "left", "had left", "is leaving"],
-        correctAnswer: "left"
-        },
-        
-        {
-        sentence: "They \_\_\_\_\_ their project, so they can relax this weekend.",
-        options: ["have finished", "finished", "had finished", "are finishing"],
-        correctAnswer: "have finished"
-        },
-        
-        {
-        sentence: "I \_\_\_\_\_ my car to the mechanic three times this month.",
-        options: ["have taken", "took", "had taken", "am taking"],
-        correctAnswer: "have taken"
-        }
+    {
+        "sentence": "If I _____ enough money, I will buy a new car.",
+        "options": ["saved", "will save", "save", "would save"],
+        "correctAnswer": "save"
+    },
+    {
+        "sentence": "If it _____ tomorrow, we will cancel the picnic.",
+        "options": ["rained", "will rain", "rains", "would rain"],
+        "correctAnswer": "rains"
+    },
+    {
+        "sentence": "If she _____ the bus, she would be late for work.",
+        "options": ["will miss", "misses", "missed", "would miss"],
+        "correctAnswer": "missed"
+    },
+    {
+        "sentence": "If they _____ harder, they would pass the exam.",
+        "options": ["will study", "study", "studied", "would study"],
+        "correctAnswer": "studied"
+    },
+    {
+        "sentence": "If I _____ her number, I would call her.",
+        "options": ["will know", "know", "knew", "would know"],
+        "correctAnswer": "knew"
+    },
+    {
+        "sentence": "If you _____ spicy food, your stomach will hurt.",
+        "options": ["will eat", "ate", "eat", "would eat"],
+        "correctAnswer": "eat"
+    },
+    {
+        "sentence": "If he _____ the lottery, he would quit his job.",
+        "options": ["will win", "wins", "won", "would win"],
+        "correctAnswer": "won"
+    },
+    {
+        "sentence": "If I _____ you, I would apologize.",
+        "options": ["will be", "am", "were", "would be"],
+        "correctAnswer": "were"
+    },
+    {
+        "sentence": "If she _____ coffee, she gets a headache.",
+        "options": ["won't drink", "didn't drink", "doesn't drink", "wouldn't drink"],
+        "correctAnswer": "doesn't drink"
+    },
+    {
+        "sentence": "If they _____ the concert tickets, they will be very happy.",
+        "options": ["will get", "got", "get", "would get"],
+        "correctAnswer": "get"
+    },
+    {
+        "sentence": "If he _____ more careful, he wouldn't have an accident.",
+        "options": ["will be", "is", "were", "would be"],
+        "correctAnswer": "were"
+    },
+    {
+        "sentence": "If I _____ a car, I would drive to the beach.",
+        "options": ["have", "will have", "had", "would have"],
+        "correctAnswer": "had"
+    },
+    {
+        "sentence": "If she _____ the truth, she wouldn't be in trouble.",
+        "options": ["will tell", "tells", "told", "would tell"],
+        "correctAnswer": "told"
+    },
+    {
+        "sentence": "If you _____ me, I will help you.",
+        "options": ["will ask", "asked", "ask", "would ask"],
+        "correctAnswer": "ask"
+    },
+    {
+        "sentence": "If they _____ more money, they could buy a bigger house.",
+        "options": ["have", "will have", "had", "would have"],
+        "correctAnswer": "had"
+    },
+    {
+        "sentence": "If he _____ to the gym regularly, he will lose weight.",
+        "options": ["will go", "went", "goes", "would go"],
+        "correctAnswer": "goes"
+    },
+    {
+        "sentence": "If I _____ the answer, I would tell you.",
+        "options": ["will know", "know", "knew", "would know"],
+        "correctAnswer": "knew"
+    },
+    {
+        "sentence": "If she _____ harder, she will get a promotion.",
+        "options": ["will work", "worked", "works", "would work"],
+        "correctAnswer": "works"
+    },
+    {
+        "sentence": "If they _____ their project on time, they would get a better grade.",
+        "options": ["will finish", "finish", "finished", "would finish"],
+        "correctAnswer": "finished"
+    },
+    {
+        "sentence": "If you _____ smoking, your health will improve.",
+        "options": ["will quit", "quitted", "quit", "would quit"],
+        "correctAnswer": "quit"
+    },
+    {
+        "sentence": "I _____ a book on procrastination, but I haven't gotten around to reading it yet.",
+        "options": ["have bought", "am buying", "bought", "had bought"],
+        "correctAnswer": "bought"
+    },
+    {
+        "sentence": "She _____ her cat's birthday every year with a tuna cake and catnip piñata before the cat developed a food intolerance.",
+        "options": ["has celebrated", "is celebrating", "had celebrated", "celebrated"],
+        "correctAnswer": "had celebrated"
+    },
+    {
+        "sentence": "He _____ a novel about a man who turns into a banana before realizing it was a bit too niche.",
+        "options": ["has written", "is writing", "wrote", "had written"],
+        "correctAnswer": "had written"
+    },
+    {
+        "sentence": "She _____ her keys, so she can't get into her house.",
+        "options": ["lost", "is losing", "has lost", "had lost"],
+        "correctAnswer": "has lost"
+    },
+    {
+        "sentence": "They _____ the movie twice because they enjoyed it so much.",
+        "options": ["watched", "are watching", "have watched", "had watched"],
+        "correctAnswer": "have watched"
+    },
+    {
+        "sentence": "By the time we arrived at the theater, the movie _____.",
+        "options": ["started", "is starting", "has started", "had started"],
+        "correctAnswer": "had started"
+    },
+    {
+        "sentence": "I _____ my best friend since we were in elementary school.",
+        "options": ["knew", "am knowing", "have known", "had known"],
+        "correctAnswer": "have known"
+    },
+    {
+        "sentence": "Before she moved to New York, she _____ in London for five years.",
+        "options": ["lived", "is living", "has lived", "had lived"],
+        "correctAnswer": "had lived"
+    },
+    {
+        "sentence": "He _____ his homework yet, so he can't go out with his friends.",
+        "options": ["didn't finish", "isn't finishing", "hasn't finished", "hadn't finished"],
+        "correctAnswer": "hasn't finished"
+    },
+    {
+        "sentence": "I _____ my car keys, but I can't remember where I put them.",
+        "options": ["lost", "am losing", "have lost", "had lost"],
+        "correctAnswer": "have lost"
+    },
+    {
+        "sentence": "She _____ three cups of coffee today.",
+        "options": ["drank", "is drinking", "has drunk", "had drunk"],
+        "correctAnswer": "has drunk"
+    },
+    {
+        "sentence": "By the time I got to the store, they _____ out of my favorite snack.",
+        "options": ["ran", "are running", "have run", "had run"],
+        "correctAnswer": "had run"
+    },
+    {
+        "sentence": "They _____ the championship game last year.",
+        "options": ["have won", "are winning", "won", "had won"],
+        "correctAnswer": "won"
+    },
+    {
+        "sentence": "I _____ my passport, so I need to apply for a new one.",
+        "options": ["lost", "am losing", "have lost", "had lost"],
+        "correctAnswer": "have lost"
+    },
+    {
+        "sentence": "She _____ her phone twice this month.",
+        "options": ["broke", "is breaking", "has broken", "had broken"],
+        "correctAnswer": "has broken"
+    },
+    {
+        "sentence": "Before he started his own business, he _____ for a large corporation.",
+        "options": ["worked", "is working", "has worked", "had worked"],
+        "correctAnswer": "had worked"
+    },
+    {
+        "sentence": "I _____ my coffee, so I'll have to make another cup.",
+        "options": ["spilled", "am spilling", "have spilled", "had spilled"],
+        "correctAnswer": "have spilled"
+    },
+    {
+        "sentence": "They _____ their flight, so they had to book a new one.",
+        "options": ["have missed", "are missing", "missed", "had missed"],
+        "correctAnswer": "missed"
+    },
+    {
+        "sentence": "She _____ her ankle while playing soccer.",
+        "options": ["has twisted", "is twisting", "twisted", "had twisted"],
+        "correctAnswer": "twisted"
+    },
+    {
+        "sentence": "I _____ my favorite shirt in the dryer.",
+        "options": ["have shrunk", "am shrinking", "shrank", "had shrunk"],
+        "correctAnswer": "have shrunk"
+    },
+    {
+        "sentence": "He _____ his wallet at the restaurant, but luckily someone turned it in.",
+        "options": ["has left", "is leaving", "left", "had left"],
+        "correctAnswer": "left"
+    },
+    {
+        "sentence": "They _____ their project, so they can relax this weekend.",
+        "options": ["have finished", "are finishing", "finished", "had finished"],
+        "correctAnswer": "have finished"
+    },
+    {
+        "sentence": "I _____ my car to the mechanic three times this month.",
+        "options": ["took", "am taking", "have taken", "had taken"],
+        "correctAnswer": "have taken"
+    }
     ];
   
     let currentPlayer = 1;
