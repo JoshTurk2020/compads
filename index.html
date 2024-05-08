@@ -409,7 +409,7 @@
       if (currentQuestion < sentences.length) {
         const question = sentences[currentQuestion];
         document.getElementById("question").textContent = question.sentence;
-        const answerButtons = question.options.map(option => `<button class="answer" onclick="checkAnswer('${option}')"> ${option} </button>`).join("");
+        const answerButtons = question.options.map(option => `<button class="answer" onclick="checkAnswer('${option.replace(/'/g, "\\'")}')"> ${option} </button>`).join("");
         document.getElementById("answers").innerHTML = answerButtons;
       } else {
         document.getElementById("question").textContent = "Game Over!";
